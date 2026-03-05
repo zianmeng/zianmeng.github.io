@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zian Meng — Product Designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FDF6EC;
+      --warm-bg: #FAF0E4;
+      --terracotta: #C4654A;
+      --terracotta-light: #D4826A;
+      --forest: #2D4A3E;
+      --charcoal: #2C2C2C;
+      --muted: #7A7068;
+      --sand: #E8D5BE;
+      --peach: #F2C4A0;
+      --soft-white: #FFFBF5;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ---- NAV ---- */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(253, 246, 236, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(200, 180, 160, 0.2);
+    }
+
+    nav .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
+      color: var(--forest);
+      text-decoration: none;
+    }
+
+    nav .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+    nav .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s;
+      letter-spacing: 0.02em;
+    }
+
+    nav .nav-links a:hover { color: var(--terracotta); }
+
+    /* ---- HERO ---- */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -120px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, var(--peach) 0%, transparent 70%);
+      opacity: 0.5;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -60px; left: -100px;
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, var(--sand) 0%, transparent 70%);
+      opacity: 0.4;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-greeting {
+      font-size: 1rem;
+      color: var(--terracotta);
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.2s;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      color: var(--forest);
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.4s;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.6s;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 0.85rem 2.2rem;
+      background: var(--terracotta);
+      color: var(--soft-white);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: background 0.3s, transform 0.3s;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.8s;
+    }
+
+    .hero-cta:hover {
+      background: var(--terracotta-light);
+      transform: translateY(-2px);
+    }
+
+    /* ---- SECTIONS ---- */
+    section { padding: 5rem 2rem; }
+
+    .section-label {
+      font-size: 0.8rem;
+      color: var(--terracotta);
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+    }
+
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--forest);
+      margin-bottom: 1.5rem;
+    }
+
+    /* ---- ABOUT ---- */
+    .about {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-image {
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: linear-gradient(135deg, var(--sand), var(--peach));
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-image .placeholder-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+      list-style: none;
+    }
+
+    .skills-list li {
+      padding: 0.45rem 1rem;
+      background: var(--soft-white);
+      border: 1px solid var(--sand);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      color: var(--forest);
+      font-weight: 500;
+    }
+
+    /* ---- PROJECTS ---- */
+    .projects-section {
+      background: var(--soft-white);
+    }
+
+    .projects-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .project-card {
+      background: var(--cream);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(44, 44, 44, 0.08);
+    }
+
+    .project-thumb {
+      width: 100%;
+      aspect-ratio: 16/10;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      position: relative;
+    }
+
+    .project-thumb-1 { background: linear-gradient(135deg, #E8C4A0, #D4826A); }
+    .project-thumb-2 { background: linear-gradient(135deg, #A0C4B8, #5A8A7A); }
+    .project-thumb-3 { background: linear-gradient(135deg, #C4A0D4, #8A5A9A); }
+
+    .project-info { padding: 1.5rem; }
+
+    .project-info h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
+      color: var(--forest);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-info p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+    .project-tags span {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.7rem;
+      background: var(--warm-bg);
+      border-radius: 50px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* ---- CONTACT ---- */
+    .contact-section {
+      max-width: 650px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-section p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      text-align: left;
+    }
+
+    .contact-form label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--forest);
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.9rem 1.2rem;
+      border: 1.5px solid var(--sand);
+      border-radius: 12px;
+      background: var(--soft-white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      transition: border-color 0.3s;
+      outline: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--terracotta);
+    }
+
+    .contact-form textarea { resize: vertical; min-height: 140px; }
+
+    .contact-form button {
+      padding: 0.9rem 2.2rem;
+      background: var(--terracotta);
+      color: var(--soft-white);
+      border: none;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      align-self: flex-start;
+    }
+
+    .contact-form button:hover {
+      background: var(--terracotta-light);
+      transform: translateY(-2px);
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .contact-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .contact-links a:hover { color: var(--terracotta); }
+
+    /* ---- FOOTER ---- */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      border-top: 1px solid var(--sand);
+    }
+
+    /* ---- ANIMATIONS ---- */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      nav .nav-links { gap: 1.2rem; }
+      .about { grid-template-columns: 1fr; gap: 2rem; }
+      .about-image { max-width: 280px; margin: 0 auto; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .contact-links { flex-direction: column; gap: 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      nav .nav-links { display: none; }
+      section { padding: 3.5rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="logo">Zian Meng</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-greeting">Hello, I'm Zian</p>
+    <h1>I design products<br>people love to use</h1>
+    <p>Product designer crafting thoughtful, user-centered digital experiences that balance beauty with function.</p>
+    <a href="#projects" class="hero-cta">View My Work</a>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about reveal">
+      <div class="about-image">
+        <div class="placeholder-icon">✦</div>
+      </div>
+      <div class="about-text">
+        <p class="section-label">About</p>
+        <h2 class="section-title">A bit about me</h2>
+        <p>I'm Zian Meng, a product designer passionate about creating digital experiences that feel intuitive and delightful. I believe great design sits at the intersection of empathy, creativity, and problem-solving.</p>
+        <p>When I'm not pushing pixels, you'll find me exploring new coffee shops, sketching ideas in my notebook, or learning something new.</p>
+        <ul class="skills-list">
+          <li>UI/UX Design</li>
+          <li>Prototyping</li>
+          <li>User Research</li>
+          <li>Design Systems</li>
+          <li>Figma</li>
+          <li>Interaction Design</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="projects-section">
+    <div class="projects-wrapper">
+      <p class="section-label reveal">Work</p>
+      <h2 class="section-title reveal">Selected Projects</h2>
+      <div class="projects-grid">
+
+        <div class="project-card reveal">
+          <div class="project-thumb project-thumb-1">✦</div>
+          <div class="project-info">
+            <h3>Project Name One</h3>
+            <p>A brief description of this project and the problem it solved for users.</p>
+            <div class="project-tags">
+              <span>Product Design</span>
+              <span>Mobile App</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-thumb project-thumb-2">✦</div>
+          <div class="project-info">
+            <h3>Project Name Two</h3>
+            <p>A brief description of this project and the impact it had on the business.</p>
+            <div class="project-tags">
+              <span>UX Research</span>
+              <span>Web App</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card reveal">
+          <div class="project-thumb project-thumb-3">✦</div>
+          <div class="project-info">
+            <h3>Project Name Three</h3>
+            <p>A brief description of this project and the design process behind it.</p>
+            <div class="project-tags">
+              <span>Design System</span>
+              <span>Branding</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="contact-section reveal">
+      <p class="section-label">Get in Touch</p>
+      <h2 class="section-title">Let's work together</h2>
+      <p>Have a project in mind or just want to say hi? I'd love to hear from you.</p>
+
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" required>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+        </div>
+        <button type="submit">Send Message</button>
+      </form>
+
+      <div class="contact-links">
+        <a href="mailto:zianmeng21@gmail.com">Email</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://dribbble.com" target="_blank" rel="noopener">Dribbble</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Zian Meng. Crafted with care.</p>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(el => observer.observe(el));
+
+    // Form handler (placeholder — swap with Formspree, Netlify Forms, etc.)
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      btn.textContent = 'Sent! ✓';
+      btn.style.background = '#2D4A3E';
+      setTimeout(() => {
+        btn.textContent = 'Send Message';
+        btn.style.background = '';
+        e.target.reset();
+      }, 2500);
+    }
+  </script>
+
+</body>
+</html>
