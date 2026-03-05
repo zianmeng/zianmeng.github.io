@@ -407,34 +407,6 @@
       transform: translateY(0);
     }
 
-    /* ---- CURSOR ---- */
-    .cursor {
-      width: 8px; height: 8px;
-      background: var(--terracotta);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      transition: opacity 0.3s;
-      opacity: 0;
-    }
-
-    .cursor-ring {
-      width: 34px; height: 34px;
-      border: 1.5px solid var(--terracotta);
-      border-radius: 50%;
-      position: fixed;
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%, -50%);
-      transition: width 0.3s, height 0.3s, opacity 0.3s;
-      opacity: 0;
-    }
-
-    body.cursor-active .cursor,
-    body.cursor-active .cursor-ring { opacity: 1; }
-
     /* ---- PROGRESS BAR ---- */
     #progress-bar {
       position: fixed;
@@ -517,8 +489,6 @@
 <body>
 
   <div id="progress-bar"></div>
-  <div class="cursor"></div>
-  <div class="cursor-ring"></div>
 
   <!-- NAV -->
   <nav>
@@ -653,26 +623,6 @@
       });
     }, { threshold: 0.15 });
     reveals.forEach(el => observer.observe(el));
-
-    // Custom cursor
-    const cursor = document.querySelector('.cursor');
-    const ring = document.querySelector('.cursor-ring');
-    let ringX = 0, ringY = 0, curX = 0, curY = 0;
-
-    document.addEventListener('mousemove', e => {
-      document.body.classList.add('cursor-active');
-      curX = e.clientX; curY = e.clientY;
-      cursor.style.left = curX + 'px';
-      cursor.style.top  = curY + 'px';
-    });
-
-    (function animateRing() {
-      ringX += (curX - ringX) * 0.12;
-      ringY += (curY - ringY) * 0.12;
-      ring.style.left = ringX + 'px';
-      ring.style.top  = ringY + 'px';
-      requestAnimationFrame(animateRing);
-    })();
 
     // Scroll progress bar
     const bar = document.getElementById('progress-bar');
