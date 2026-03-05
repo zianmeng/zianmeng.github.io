@@ -407,6 +407,97 @@
       transform: translateY(0);
     }
 
+    /* ---- CURSOR ---- */
+    .cursor {
+      width: 8px; height: 8px;
+      background: var(--terracotta);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.3s;
+      opacity: 0;
+    }
+
+    .cursor-ring {
+      width: 34px; height: 34px;
+      border: 1.5px solid var(--terracotta);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: width 0.3s, height 0.3s, opacity 0.3s;
+      opacity: 0;
+    }
+
+    body.cursor-active .cursor,
+    body.cursor-active .cursor-ring { opacity: 1; }
+
+    /* ---- PROGRESS BAR ---- */
+    #progress-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      background: var(--terracotta);
+      z-index: 200;
+      width: 0%;
+    }
+
+    /* ---- NAV SCROLL ---- */
+    nav { transition: transform 0.4s ease; }
+    nav.nav-hidden { transform: translateY(-100%); }
+
+    /* ---- CARD OVERLAY ---- */
+    .project-thumb-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(30, 20, 18, 0.65);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      font-family: 'Inter', sans-serif;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-card:hover .project-thumb-overlay { opacity: 1; }
+
+    /* ---- FLOATING ORBS ---- */
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-22px) scale(1.04); }
+    }
+
+    .hero::before { animation: float 9s ease-in-out infinite; }
+    .hero::after  { animation: float 11s ease-in-out infinite reverse; }
+
+    /* ---- ABOUT IMAGE TILT ---- */
+    .about-image {
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .about-image:hover {
+      transform: rotate(-2deg) scale(1.02);
+      box-shadow: 0 30px 60px rgba(44, 44, 44, 0.12);
+    }
+
+    /* ---- SKILL TAGS ---- */
+    .skills-list li {
+      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+      cursor: default;
+    }
+    .skills-list li:hover {
+      background: var(--terracotta);
+      color: #fff;
+      border-color: var(--terracotta);
+      transform: translateY(-2px);
+    }
+
     /* ---- RESPONSIVE ---- */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
@@ -424,6 +515,10 @@
   </style>
 </head>
 <body>
+
+  <div id="progress-bar"></div>
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
 
   <!-- NAV -->
   <nav>
@@ -474,7 +569,7 @@
       <div class="projects-grid">
 
         <div class="project-card reveal">
-          <div class="project-thumb project-thumb-1">✦</div>
+          <div class="project-thumb project-thumb-1">✦<div class="project-thumb-overlay">View Project →</div></div>
           <div class="project-info">
             <h3>Project Name One</h3>
             <p>A brief description of this project and the problem it solved for users.</p>
@@ -486,7 +581,7 @@
         </div>
 
         <div class="project-card reveal">
-          <div class="project-thumb project-thumb-2">✦</div>
+          <div class="project-thumb project-thumb-2">✦<div class="project-thumb-overlay">View Project →</div></div>
           <div class="project-info">
             <h3>Project Name Two</h3>
             <p>A brief description of this project and the impact it had on the business.</p>
@@ -498,7 +593,7 @@
         </div>
 
         <div class="project-card reveal">
-          <div class="project-thumb project-thumb-3">✦</div>
+          <div class="project-thumb project-thumb-3">✦<div class="project-thumb-overlay">View Project →</div></div>
           <div class="project-info">
             <h3>Project Name Three</h3>
             <p>A brief description of this project and the design process behind it.</p>
@@ -554,15 +649,53 @@
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.15 });
-
     reveals.forEach(el => observer.observe(el));
 
-    // Form handler (placeholder — swap with Formspree, Netlify Forms, etc.)
+    // Custom cursor
+    const cursor = document.querySelector('.cursor');
+    const ring = document.querySelector('.cursor-ring');
+    let ringX = 0, ringY = 0, curX = 0, curY = 0;
+
+    document.addEventListener('mousemove', e => {
+      document.body.classList.add('cursor-active');
+      curX = e.clientX; curY = e.clientY;
+      cursor.style.left = curX + 'px';
+      cursor.style.top  = curY + 'px';
+    });
+
+    (function animateRing() {
+      ringX += (curX - ringX) * 0.12;
+      ringY += (curY - ringY) * 0.12;
+      ring.style.left = ringX + 'px';
+      ring.style.top  = ringY + 'px';
+      requestAnimationFrame(animateRing);
+    })();
+
+    // Scroll progress bar
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      const max = document.body.scrollHeight - window.innerHeight;
+      bar.style.width = (scrolled / max * 100) + '%';
+    });
+
+    // Nav hide on scroll down, show on scroll up
+    const nav = document.querySelector('nav');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const current = window.scrollY;
+      if (current > lastScroll && current > 80) {
+        nav.classList.add('nav-hidden');
+      } else {
+        nav.classList.remove('nav-hidden');
+      }
+      lastScroll = current;
+    });
+
+    // Form handler
     function handleSubmit(e) {
       e.preventDefault();
       const btn = e.target.querySelector('button');
