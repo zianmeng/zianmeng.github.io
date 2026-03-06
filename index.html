@@ -974,9 +974,12 @@
           <div class="project-thumb project-thumb-2">🔄<div class="project-thumb-overlay">View Project →</div></div>
           <div class="project-info">
             <h3>AutoSync</h3>
-            <p>Details coming soon.</p>
+            <p>Effortless, real-time folder synchronization for macOS. Keep files perfectly in sync across drives, folders, and external storage — without thinking about it.</p>
             <div class="project-tags">
-              <span>Coming Soon</span>
+              <span>Swift</span>
+              <span>SwiftUI</span>
+              <span>macOS App</span>
+              <span>FSEvents</span>
             </div>
           </div>
         </div>
@@ -1141,7 +1144,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2026 Zian Meng &nbsp;·&nbsp; v1.20</p>
+    <p>&copy; 2026 Zian Meng &nbsp;·&nbsp; v1.21</p>
   </footer>
 
   <script>
@@ -1237,10 +1240,18 @@
         emoji: '🔄',
         gradient: 'linear-gradient(135deg, #1A2E28, #2A4A3E)',
         title: 'AutoSync',
-        subtitle: 'Coming Soon',
-        description: null,
-        features: null,
-        tags: null
+        subtitle: 'Effortless Folder Sync for macOS',
+        description: 'AutoSync keeps your files perfectly in sync across drives, folders, and external storage — without thinking about it. Built entirely in Swift and SwiftUI, it lives in your menu bar. No cloud accounts, no subscriptions, no data leaves your machine.',
+        features: [
+          'Three sync modes: Mirror (exact replica), Additive (safe copy, never deletes), and Two-Way (bidirectional with conflict resolution)',
+          'Real-time file watching — syncs instantly on change, or on your schedule (hourly, daily, weekly)',
+          'Scan diffs before syncing to see exactly what will change',
+          'Detailed notifications listing every file copied, deleted, or updated, plus a full sync history log',
+          'Atomic file operations prevent data loss mid-sync',
+          'Path traversal protection and security-scoped bookmarks maintain access across reboots — even if you rename a drive',
+          'Lightweight native macOS menu bar app — no cloud, no accounts, fully local'
+        ],
+        tags: ['Swift', 'SwiftUI', 'macOS App', 'FSEvents']
       }
     };
 
