@@ -951,9 +951,18 @@
 
     .timeline-item.active .timeline-expand-hint { display: none; }
 
+    .timeline-item.edu {
+      background: rgba(212, 135, 77, 0.06);
+      border-radius: 12px;
+      padding: 1rem 1rem 1rem 72px;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      border-left: 2px solid rgba(212, 135, 77, 0.25);
+    }
     .timeline-item.edu .timeline-dot {
       border-color: var(--terracotta);
       background: transparent;
+      left: 26px;
     }
     .timeline-item.edu:hover .timeline-dot,
     .timeline-item.edu.active .timeline-dot {
@@ -970,6 +979,17 @@
       font-weight: 600;
       letter-spacing: 0.06em;
       text-transform: uppercase;
+      vertical-align: middle;
+    }
+    .timeline-duration {
+      display: inline-block;
+      font-size: 0.7rem;
+      color: var(--muted);
+      background: var(--sand);
+      border-radius: 4px;
+      padding: 0.15rem 0.5rem;
+      margin-left: 0.6rem;
+      font-weight: 500;
       vertical-align: middle;
     }
 
@@ -1182,7 +1202,7 @@
         <div class="timeline-item" onclick="toggleTimeline(this)">
           <div class="timeline-dot"></div>
           <p class="timeline-date">July 2023 — Present</p>
-          <h3 class="timeline-title" data-i18n="journey.role1">Consultant</h3>
+          <h3 class="timeline-title" data-i18n="journey.role1">Consultant <span class="timeline-duration">2+ yrs</span></h3>
           <p class="timeline-company">Sumitomo Corporation of Americas (SCSK)</p>
           <span class="timeline-expand-hint" data-i18n="journey.expand">tap to expand</span>
           <div class="timeline-details">
@@ -1194,7 +1214,7 @@
         <div class="timeline-item edu" onclick="toggleTimeline(this)">
           <div class="timeline-dot"></div>
           <p class="timeline-date">2022</p>
-          <h3 class="timeline-title">Northeastern University <span class="timeline-edu-badge">Education</span></h3>
+          <h3 class="timeline-title">Northeastern University <span class="timeline-edu-badge">Education</span> <span class="timeline-duration">2 yrs</span></h3>
           <p class="timeline-company">M.S. Project Management</p>
           <span class="timeline-expand-hint" data-i18n="journey.expand">tap to expand</span>
           <div class="timeline-details">
@@ -1205,7 +1225,7 @@
         <div class="timeline-item" onclick="toggleTimeline(this)">
           <div class="timeline-dot"></div>
           <p class="timeline-date">Nov 2021 — Dec 2022</p>
-          <h3 class="timeline-title" data-i18n="journey.role2">Product Manager</h3>
+          <h3 class="timeline-title" data-i18n="journey.role2">Product Manager <span class="timeline-duration">1 yr</span></h3>
           <p class="timeline-company">GreatGetaways</p>
           <span class="timeline-expand-hint" data-i18n="journey.expand">tap to expand</span>
           <div class="timeline-details">
@@ -1217,7 +1237,7 @@
         <div class="timeline-item" onclick="toggleTimeline(this)">
           <div class="timeline-dot"></div>
           <p class="timeline-date">Apr 2021 — Nov 2021</p>
-          <h3 class="timeline-title" data-i18n="journey.role3">Product Manager</h3>
+          <h3 class="timeline-title" data-i18n="journey.role3">Product Manager <span class="timeline-duration">7 mos</span></h3>
           <p class="timeline-company">Edugionville</p>
           <span class="timeline-expand-hint" data-i18n="journey.expand">tap to expand</span>
           <div class="timeline-details">
@@ -1228,7 +1248,7 @@
         <div class="timeline-item edu" onclick="toggleTimeline(this)">
           <div class="timeline-dot"></div>
           <p class="timeline-date">2020</p>
-          <h3 class="timeline-title">University of Pittsburgh <span class="timeline-edu-badge">Education</span></h3>
+          <h3 class="timeline-title">University of Pittsburgh <span class="timeline-edu-badge">Education</span> <span class="timeline-duration">4 yrs</span></h3>
           <p class="timeline-company">B.S. Computer Science</p>
           <span class="timeline-expand-hint" data-i18n="journey.expand">tap to expand</span>
           <div class="timeline-details">
@@ -1239,7 +1259,7 @@
         <div class="timeline-item" onclick="toggleTimeline(this)">
           <div class="timeline-dot"></div>
           <p class="timeline-date">2020</p>
-          <h3 class="timeline-title" data-i18n="journey.role4">Software Engineer Intern</h3>
+          <h3 class="timeline-title" data-i18n="journey.role4">Software Engineer Intern <span class="timeline-duration">6 mos</span></h3>
           <p class="timeline-company">BehAIvior</p>
           <span class="timeline-expand-hint" data-i18n="journey.expand">tap to expand</span>
           <div class="timeline-details">
@@ -1268,17 +1288,17 @@
       <div class="about-text">
         <p class="section-label" data-i18n="about.label">About</p>
         <h2 class="section-title" data-i18n="about.title">A bit about me</h2>
-        <p data-i18n="about.bio1" data-i18n-html="true">I'm Zian Meng — a product designer, <a href="https://heyzian.com" target="_blank" rel="noopener" style="color: var(--terracotta); text-decoration: none; border-bottom: 1px solid var(--terracotta);">photographer</a>, and builder based in New York. I've shot campaigns for brands like JBL and spent years at the intersection of technology and design, consulting for companies on automation and digital transformation, while pouring my creative energy into apps and experiences that feel human.</p>
+        <p data-i18n="about.bio1" data-i18n-html="true">I'm Zian Meng — a product designer and builder based in New York. I've spent years at the intersection of technology and design, consulting for companies on automation and digital transformation, while pouring my creative energy into apps and experiences that feel human. I'm also a <a href="https://heyzian.com" target="_blank" rel="noopener" style="color: var(--terracotta); text-decoration: none; border-bottom: 1px solid var(--terracotta);">photographer</a> who's shot campaigns for brands like JBL.</p>
         <p data-i18n="about.bio2">When I'm not shipping products, you'll find me behind a camera lens, chasing light and experimenting with film. That restless curiosity is why I build — I'm drawn to problems worth solving and products I actually care about using myself.</p>
         <ul class="skills-list">
           <li>Product Design</li>
           <li>UX Research</li>
-          <li>Photography</li>
           <li>Swift / SwiftUI</li>
           <li>React</li>
           <li>Figma</li>
           <li>AWS</li>
           <li>Automation</li>
+          <li>Photography</li>
         </ul>
       </div>
     </div>
@@ -1329,7 +1349,7 @@
       <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://github.com/zianmeng" target="_blank" rel="noopener">GitHub</a>
     </div>
-    <p>&copy; 2026 Zian Meng &nbsp;·&nbsp; v1.41</p>
+    <p>&copy; 2026 Zian Meng &nbsp;·&nbsp; v1.42</p>
   </footer>
 
   <script>
@@ -1578,7 +1598,7 @@
         'journey.role1': 'Consultant', 'journey.role2': 'Product Manager', 'journey.role3': 'Product Manager', 'journey.role4': 'Software Engineer Intern',
         'journey.education': 'Education', 'journey.certifications': 'Certifications',
         'about.label': 'About', 'about.title': 'A bit about me',
-        'about.bio1': 'I\'m Zian Meng — a product designer, <a href="https://heyzian.com" target="_blank" rel="noopener" style="color: var(--terracotta); text-decoration: none; border-bottom: 1px solid var(--terracotta);">photographer</a>, and builder based in New York. I\'ve shot campaigns for brands like JBL and spent years at the intersection of technology and design, consulting for companies on automation and digital transformation, while pouring my creative energy into apps and experiences that feel human.',
+        'about.bio1': 'I\'m Zian Meng — a product designer and builder based in New York. I\'ve spent years at the intersection of technology and design, consulting for companies on automation and digital transformation, while pouring my creative energy into apps and experiences that feel human. I\'m also a <a href="https://heyzian.com" target="_blank" rel="noopener" style="color: var(--terracotta); text-decoration: none; border-bottom: 1px solid var(--terracotta);">photographer</a> who\'s shot campaigns for brands like JBL.',
         'about.bio2': "When I'm not shipping products, you'll find me behind a camera lens, chasing light and experimenting with film. That restless curiosity is why I build — I'm drawn to problems worth solving and products I actually care about using myself.",
         'contact.label': 'Get in Touch', 'contact.title': "Let's build together",
         'contact.subtitle': "Have a project in mind or just want to say hi? I'd love to hear from you.",
@@ -1596,7 +1616,7 @@
         'journey.role1': '顾问', 'journey.role2': '产品经理', 'journey.role3': '产品经理', 'journey.role4': '软件工程实习生',
         'journey.education': '教育背景', 'journey.certifications': '专业认证',
         'about.label': '关于', 'about.title': '关于我',
-        'about.bio1': '我是孟梓安 — 产品设计师、<a href="https://heyzian.com" target="_blank" rel="noopener" style="color: var(--terracotta); text-decoration: none; border-bottom: 1px solid var(--terracotta);">摄影师</a>、以及一名纽约的开发者。我曾为JBL等品牌拍摄广告，多年来一直在技术与设计的交叉点工作，为企业提供自动化和数字转型咨询，同时将创造力倾注于打造有温度的应用和体验。',
+        'about.bio1': '我是孟梓安 — 产品设计师与开发者，来自纽约。多年来我一直在技术与设计的交叉点工作，为企业提供自动化和数字转型咨询，同时将创造力倾注于打造有温度的应用和体验。我也是一名<a href="https://heyzian.com" target="_blank" rel="noopener" style="color: var(--terracotta); text-decoration: none; border-bottom: 1px solid var(--terracotta);">摄影师</a>，曾为JBL等品牌拍摄广告。',
         'about.bio2': '不做产品的时候，你会发现我在相机后面追逐光影、探索胶片。正是这种不安分的好奇心驱使我不断构建 — 我被值得解决的问题和自己真正想用的产品所吸引。',
         'contact.label': '联系我', 'contact.title': '一起创造',
         'contact.subtitle': '有项目想法或者只是想打个招呼？期待您的来信。',
@@ -1614,7 +1634,7 @@
         'journey.role1': 'Consultor', 'journey.role2': 'Gerente de Producto', 'journey.role3': 'Gerente de Producto', 'journey.role4': 'Pasante de Ingeniería de Software',
         'journey.education': 'Educación', 'journey.certifications': 'Certificaciones',
         'about.label': 'Sobre mí', 'about.title': 'Un poco sobre mí',
-        'about.bio1': 'Soy Zian Meng — diseñador de producto, <a href="https://heyzian.com" target="_blank" rel="noopener" style="color: var(--terracotta); text-decoration: none; border-bottom: 1px solid var(--terracotta);">fotógrafo</a> y desarrollador en Nueva York. He fotografiado campañas para marcas como JBL y he pasado años en la intersección de tecnología y diseño, consultando para empresas en automatización y transformación digital, mientras vierto mi energía creativa en aplicaciones y experiencias que se sienten humanas.',
+        'about.bio1': 'Soy Zian Meng — diseñador de producto y desarrollador en Nueva York. He pasado años en la intersección de tecnología y diseño, consultando para empresas en automatización y transformación digital, mientras vierto mi energía creativa en aplicaciones y experiencias que se sienten humanas. También soy <a href="https://heyzian.com" target="_blank" rel="noopener" style="color: var(--terracotta); text-decoration: none; border-bottom: 1px solid var(--terracotta);">fotógrafo</a> y he fotografiado campañas para marcas como JBL.',
         'about.bio2': 'Cuando no estoy lanzando productos, me encontrarás detrás de un lente, persiguiendo la luz y experimentando con película. Esa curiosidad inquieta es la razón por la que construyo — me atraen los problemas que vale la pena resolver y los productos que realmente quiero usar.',
         'contact.label': 'Contacto', 'contact.title': 'Construyamos juntos',
         'contact.subtitle': '¿Tienes un proyecto en mente o solo quieres saludar? Me encantaría saber de ti.',
