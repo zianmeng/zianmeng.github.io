@@ -776,7 +776,34 @@
       width: 100%;
       height: auto;
       display: block;
+      cursor: zoom-in;
     }
+
+    /* ---- LIGHTBOX ---- */
+    .lightbox-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: zoom-out;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .lightbox-overlay.active { opacity: 1; }
+    .lightbox-overlay img {
+      max-height: 90vh;
+      max-width: 90vw;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      transform: scale(0.9);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .lightbox-overlay.active img { transform: scale(1); }
 
     /* ---- JOURNEY / RESUME TIMELINE ---- */
     .journey-section { background: var(--warm-bg); }
@@ -1152,7 +1179,7 @@
       <div class="about-text">
         <p class="section-label" data-i18n="about.label">About</p>
         <h2 class="section-title" data-i18n="about.title">A bit about me</h2>
-        <p data-i18n="about.bio1" data-i18n-html="true">I'm Zian Meng — a product designer, <a href="https://heyzian.com" target="_blank" rel="noopener" style="color: var(--terracotta); text-decoration: none; border-bottom: 1px solid var(--terracotta);">photographer</a>, and builder based in New York. I've spent years at the intersection of technology and design, consulting for companies on automation and digital transformation, while pouring my creative energy into apps and experiences that feel human.</p>
+        <p data-i18n="about.bio1" data-i18n-html="true">I'm Zian Meng — a product designer, <a href="https://heyzian.com" target="_blank" rel="noopener" style="color: var(--terracotta); text-decoration: none; border-bottom: 1px solid var(--terracotta);">photographer</a>, and builder based in New York. I've shot campaigns for brands like JBL and spent years at the intersection of technology and design, consulting for companies on automation and digital transformation, while pouring my creative energy into apps and experiences that feel human.</p>
         <p data-i18n="about.bio2">When I'm not shipping products, you'll find me behind a camera lens, chasing light and experimenting with film. That restless curiosity is why I build — I'm drawn to problems worth solving and products I actually care about using myself.</p>
         <ul class="skills-list">
           <li>Product Design</li>
@@ -1207,7 +1234,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2026 Zian Meng &nbsp;·&nbsp; v1.27</p>
+    <p>&copy; 2026 Zian Meng &nbsp;·&nbsp; v1.28</p>
   </footer>
 
   <script>
@@ -1369,6 +1396,28 @@
       document.body.classList.remove('modal-open');
     }
 
+    // Lightbox for gallery images
+    function openLightbox(src) {
+      const overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      overlay.innerHTML = `<img src="${src}" alt="Enlarged screenshot">`;
+      overlay.addEventListener('click', () => {
+        overlay.classList.remove('active');
+        setTimeout(() => overlay.remove(), 300);
+      });
+      document.body.appendChild(overlay);
+      requestAnimationFrame(() => overlay.classList.add('active'));
+    }
+
+    // Delegate click on gallery images
+    document.addEventListener('click', (e) => {
+      const img = e.target.closest('.modal-phone-frame img');
+      if (img) {
+        e.stopPropagation();
+        openLightbox(img.src);
+      }
+    });
+
     // Timeline toggle
     function toggleTimeline(el) {
       const wasActive = el.classList.contains('active');
@@ -1411,7 +1460,7 @@
         'journey.role1': 'Consultant', 'journey.role2': 'Product Manager', 'journey.role3': 'Product Manager', 'journey.role4': 'Software Engineer Intern',
         'journey.education': 'Education', 'journey.certifications': 'Certifications',
         'about.label': 'About', 'about.title': 'A bit about me',
-        'about.bio1': 'I\'m Zian Meng — a product designer, <a href="https://heyzian.com" target="_blank" rel="noopener" style="color: var(--terracotta); text-decoration: none; border-bottom: 1px solid var(--terracotta);">photographer</a>, and builder based in New York. I\'ve spent years at the intersection of technology and design, consulting for companies on automation and digital transformation, while pouring my creative energy into apps and experiences that feel human.',
+        'about.bio1': 'I\'m Zian Meng — a product designer, <a href="https://heyzian.com" target="_blank" rel="noopener" style="color: var(--terracotta); text-decoration: none; border-bottom: 1px solid var(--terracotta);">photographer</a>, and builder based in New York. I\'ve shot campaigns for brands like JBL and spent years at the intersection of technology and design, consulting for companies on automation and digital transformation, while pouring my creative energy into apps and experiences that feel human.',
         'about.bio2': "When I'm not shipping products, you'll find me behind a camera lens, chasing light and experimenting with film. That restless curiosity is why I build — I'm drawn to problems worth solving and products I actually care about using myself.",
         'contact.label': 'Get in Touch', 'contact.title': "Let's build together",
         'contact.subtitle': "Have a project in mind or just want to say hi? I'd love to hear from you.",
@@ -1429,7 +1478,7 @@
         'journey.role1': '顾问', 'journey.role2': '产品经理', 'journey.role3': '产品经理', 'journey.role4': '软件工程实习生',
         'journey.education': '教育背景', 'journey.certifications': '专业认证',
         'about.label': '关于', 'about.title': '关于我',
-        'about.bio1': '我是孟梓安 — 产品设计师、<a href="https://heyzian.com" target="_blank" rel="noopener" style="color: var(--terracotta); text-decoration: none; border-bottom: 1px solid var(--terracotta);">摄影师</a>、以及一名纽约的开发者。多年来我一直在技术与设计的交叉点工作，为企业提供自动化和数字转型咨询，同时将创造力倾注于打造有温度的应用和体验。',
+        'about.bio1': '我是孟梓安 — 产品设计师、<a href="https://heyzian.com" target="_blank" rel="noopener" style="color: var(--terracotta); text-decoration: none; border-bottom: 1px solid var(--terracotta);">摄影师</a>、以及一名纽约的开发者。我曾为JBL等品牌拍摄广告，多年来一直在技术与设计的交叉点工作，为企业提供自动化和数字转型咨询，同时将创造力倾注于打造有温度的应用和体验。',
         'about.bio2': '不做产品的时候，你会发现我在相机后面追逐光影、探索胶片。正是这种不安分的好奇心驱使我不断构建 — 我被值得解决的问题和自己真正想用的产品所吸引。',
         'contact.label': '联系我', 'contact.title': '一起创造',
         'contact.subtitle': '有项目想法或者只是想打个招呼？期待您的来信。',
@@ -1447,7 +1496,7 @@
         'journey.role1': 'Consultor', 'journey.role2': 'Gerente de Producto', 'journey.role3': 'Gerente de Producto', 'journey.role4': 'Pasante de Ingeniería de Software',
         'journey.education': 'Educación', 'journey.certifications': 'Certificaciones',
         'about.label': 'Sobre mí', 'about.title': 'Un poco sobre mí',
-        'about.bio1': 'Soy Zian Meng — diseñador de producto, <a href="https://heyzian.com" target="_blank" rel="noopener" style="color: var(--terracotta); text-decoration: none; border-bottom: 1px solid var(--terracotta);">fotógrafo</a> y desarrollador en Nueva York. He pasado años en la intersección de tecnología y diseño, consultando para empresas en automatización y transformación digital, mientras vierto mi energía creativa en aplicaciones y experiencias que se sienten humanas.',
+        'about.bio1': 'Soy Zian Meng — diseñador de producto, <a href="https://heyzian.com" target="_blank" rel="noopener" style="color: var(--terracotta); text-decoration: none; border-bottom: 1px solid var(--terracotta);">fotógrafo</a> y desarrollador en Nueva York. He fotografiado campañas para marcas como JBL y he pasado años en la intersección de tecnología y diseño, consultando para empresas en automatización y transformación digital, mientras vierto mi energía creativa en aplicaciones y experiencias que se sienten humanas.',
         'about.bio2': 'Cuando no estoy lanzando productos, me encontrarás detrás de un lente, persiguiendo la luz y experimentando con película. Esa curiosidad inquieta es la razón por la que construyo — me atraen los problemas que vale la pena resolver y los productos que realmente quiero usar.',
         'contact.label': 'Contacto', 'contact.title': 'Construyamos juntos',
         'contact.subtitle': '¿Tienes un proyecto en mente o solo quieres saludar? Me encantaría saber de ti.',
