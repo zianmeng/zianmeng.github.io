@@ -73,6 +73,22 @@
 
     nav .nav-links a:hover { color: var(--charcoal); }
 
+    .lang-toggle {
+      color: var(--terracotta) !important;
+      border: 1px solid var(--terracotta);
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.75rem !important;
+      letter-spacing: 0 !important;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .lang-toggle:hover {
+      background: var(--terracotta);
+      color: var(--cream) !important;
+    }
+
     /* ---- HERO ---- */
     .hero {
       min-height: 72vh;
@@ -935,21 +951,22 @@
   <nav>
     <a href="#" class="logo">Zian Meng</a>
     <ul class="nav-links">
-      <li><a href="#projects">Work</a></li>
-      <li><a href="#journey">Experience</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#projects" data-i18n="nav.work">Work</a></li>
+      <li><a href="#journey" data-i18n="nav.experience">Experience</a></li>
+      <li><a href="#about" data-i18n="nav.about">About</a></li>
+      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      <li><a href="#" class="lang-toggle" onclick="toggleLang(event)">中文</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <p class="hero-greeting">Hello, I'm Zian</p>
-    <h1>I design products<br>people love to use</h1>
-    <p>Product designer crafting thoughtful, user-centered digital experiences that balance beauty with function.</p>
-    <a href="#projects" class="hero-cta">View My Work</a>
+    <p class="hero-greeting" data-i18n="hero.greeting">Hello, I'm Zian</p>
+    <h1 data-i18n="hero.title" data-i18n-html="true">I design products<br>people love to use</h1>
+    <p data-i18n="hero.subtitle">Product designer crafting thoughtful, user-centered digital experiences that balance beauty with function.</p>
+    <a href="#projects" class="hero-cta" data-i18n="hero.cta">View My Work</a>
     <div class="scroll-indicator" id="scroll-indicator">
-      <span>Scroll</span>
+      <span data-i18n="hero.scroll">Scroll</span>
       <div class="scroll-arrow"></div>
     </div>
   </section>
@@ -957,8 +974,8 @@
   <!-- PROJECTS -->
   <section id="projects" class="projects-section">
     <div class="projects-wrapper">
-      <p class="section-label reveal">Work</p>
-      <h2 class="section-title reveal">Selected Projects</h2>
+      <p class="section-label reveal" data-i18n="projects.label">Work</p>
+      <h2 class="section-title reveal" data-i18n="projects.title">Selected Projects</h2>
       <div class="projects-grid">
 
         <div class="project-card reveal" data-project="photopal" onclick="openModal('photopal')">
@@ -1013,16 +1030,16 @@
   <!-- JOURNEY / RESUME -->
   <section id="journey" class="journey-section">
     <div class="journey-wrapper">
-      <p class="section-label reveal">Journey</p>
-      <h2 class="section-title reveal">Where I've been</h2>
+      <p class="section-label reveal" data-i18n="journey.label">Journey</p>
+      <h2 class="section-title reveal" data-i18n="journey.title">Where I've been</h2>
 
       <div class="timeline reveal">
         <div class="timeline-item" onclick="toggleTimeline(this)">
           <div class="timeline-dot"></div>
           <p class="timeline-date">July 2023 — Present</p>
-          <h3 class="timeline-title">Consultant</h3>
+          <h3 class="timeline-title" data-i18n="journey.role1">Consultant</h3>
           <p class="timeline-company">Sumitomo Corporation of Americas (SCSK)</p>
-          <span class="timeline-expand-hint">tap to expand</span>
+          <span class="timeline-expand-hint" data-i18n="journey.expand">tap to expand</span>
           <div class="timeline-details">
             <p>Drove automation initiatives migrating data from SAP R/3 to AWS S3, creating real-time PowerBI dashboards and reducing processing time by 85%.</p>
             <p>Built data visualization systems using Power Automate and Power BI, saving 20+ hours per month. Directed cross-functional projects that cut hiring cycles from 30 days to 5. Led a company-wide Copilot demo showcasing practical AI applications.</p>
@@ -1032,9 +1049,9 @@
         <div class="timeline-item" onclick="toggleTimeline(this)">
           <div class="timeline-dot"></div>
           <p class="timeline-date">Nov 2021 — Dec 2022</p>
-          <h3 class="timeline-title">Product Manager</h3>
+          <h3 class="timeline-title" data-i18n="journey.role2">Product Manager</h3>
           <p class="timeline-company">GreatGetaways</p>
-          <span class="timeline-expand-hint">tap to expand</span>
+          <span class="timeline-expand-hint" data-i18n="journey.expand">tap to expand</span>
           <div class="timeline-details">
             <p>Developed RPA solutions for customer support, cutting processing time by 80% and operational costs by 45%. Crafted go-to-market strategies that achieved a 15% rise in conversion rates within the first quarter.</p>
             <p>Launched a personalized recommendation engine, increasing CTR by 65% and reducing early exits by 85%.</p>
@@ -1044,9 +1061,9 @@
         <div class="timeline-item" onclick="toggleTimeline(this)">
           <div class="timeline-dot"></div>
           <p class="timeline-date">Apr 2021 — Nov 2021</p>
-          <h3 class="timeline-title">Product Manager</h3>
+          <h3 class="timeline-title" data-i18n="journey.role3">Product Manager</h3>
           <p class="timeline-company">Edugionville</p>
-          <span class="timeline-expand-hint">tap to expand</span>
+          <span class="timeline-expand-hint" data-i18n="journey.expand">tap to expand</span>
           <div class="timeline-details">
             <p>Designed and launched a gamified web-based platform for educating children about various industries and careers. Conducted extensive user research, identifying customer pain points and translating insights into actionable product improvements.</p>
           </div>
@@ -1055,9 +1072,9 @@
         <div class="timeline-item" onclick="toggleTimeline(this)">
           <div class="timeline-dot"></div>
           <p class="timeline-date">2020</p>
-          <h3 class="timeline-title">Software Engineer Intern</h3>
+          <h3 class="timeline-title" data-i18n="journey.role4">Software Engineer Intern</h3>
           <p class="timeline-company">BehAIvior</p>
-          <span class="timeline-expand-hint">tap to expand</span>
+          <span class="timeline-expand-hint" data-i18n="journey.expand">tap to expand</span>
           <div class="timeline-details">
             <p>Designed and developed a React-based web app integrating fitness device data with an AI model supporting addiction rehabilitation, helping raise $1.1M in funding.</p>
           </div>
@@ -1065,7 +1082,7 @@
       </div>
 
       <div class="journey-education reveal">
-        <h3 class="section-title" style="font-size: 1.4rem;">Education</h3>
+        <h3 class="section-title" style="font-size: 1.4rem;" data-i18n="journey.education">Education</h3>
         <div class="edu-grid">
           <div class="edu-card">
             <h4>Northeastern University</h4>
@@ -1077,7 +1094,7 @@
           </div>
         </div>
 
-        <h3 class="section-title" style="font-size: 1.1rem; margin-top: 1.5rem;">Certifications</h3>
+        <h3 class="section-title" style="font-size: 1.1rem; margin-top: 1.5rem;" data-i18n="journey.certifications">Certifications</h3>
         <ul class="cert-list">
           <li>AWS Solutions Architect</li>
           <li>AWS AI Practitioner</li>
@@ -1094,10 +1111,10 @@
         <div class="placeholder-icon">✦</div>
       </div>
       <div class="about-text">
-        <p class="section-label">About</p>
-        <h2 class="section-title">A bit about me</h2>
-        <p>I'm Zian Meng — a photographer, product-obsessed UX thinker, and builder based in New York. I've spent years at the intersection of technology and design, consulting for companies on automation and digital transformation, while pouring my creative energy into apps and experiences that feel human.</p>
-        <p>When I'm not shipping products, you'll find me behind a camera lens, chasing light and experimenting with film. That restless curiosity is why I build — I'm drawn to problems worth solving and products I actually care about using myself.</p>
+        <p class="section-label" data-i18n="about.label">About</p>
+        <h2 class="section-title" data-i18n="about.title">A bit about me</h2>
+        <p data-i18n="about.bio1">I'm Zian Meng — a photographer, product-obsessed UX thinker, and builder based in New York. I've spent years at the intersection of technology and design, consulting for companies on automation and digital transformation, while pouring my creative energy into apps and experiences that feel human.</p>
+        <p data-i18n="about.bio2">When I'm not shipping products, you'll find me behind a camera lens, chasing light and experimenting with film. That restless curiosity is why I build — I'm drawn to problems worth solving and products I actually care about using myself.</p>
         <ul class="skills-list">
           <li>Product Design</li>
           <li>UX Research</li>
@@ -1115,24 +1132,24 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="contact-section reveal">
-      <p class="section-label">Get in Touch</p>
-      <h2 class="section-title">Let's work together</h2>
-      <p>Have a project in mind or just want to say hi? I'd love to hear from you.</p>
+      <p class="section-label" data-i18n="contact.label">Get in Touch</p>
+      <h2 class="section-title" data-i18n="contact.title">Let's build together</h2>
+      <p data-i18n="contact.subtitle">Have a project in mind or just want to say hi? I'd love to hear from you.</p>
 
       <form class="contact-form" onsubmit="handleSubmit(event)">
         <div>
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Your name" required>
+          <label for="name" data-i18n="contact.name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" data-i18n-placeholder="contact.namePh" required>
         </div>
         <div>
-          <label for="email">Email</label>
+          <label for="email" data-i18n="contact.email">Email</label>
           <input type="email" id="email" name="email" placeholder="your@email.com" required>
         </div>
         <div>
-          <label for="message">Message</label>
-          <textarea id="message" name="message" placeholder="Tell me about your project..." required></textarea>
+          <label for="message" data-i18n="contact.message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell me about your project..." data-i18n-placeholder="contact.messagePh" required></textarea>
         </div>
-        <button type="submit">Send Message</button>
+        <button type="submit" data-i18n="contact.send">Send Message</button>
       </form>
 
       <div class="contact-links">
@@ -1151,7 +1168,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2026 Zian Meng &nbsp;·&nbsp; v1.23</p>
+    <p>&copy; 2026 Zian Meng &nbsp;·&nbsp; v1.24</p>
   </footer>
 
   <script>
@@ -1328,13 +1345,122 @@
     function handleSubmit(e) {
       e.preventDefault();
       const btn = e.target.querySelector('button');
-      btn.textContent = 'Sent! ✓';
+      btn.textContent = currentLang === 'zh' ? '已发送! ✓' : 'Sent! ✓';
       btn.style.background = '#2A4A3E';
       setTimeout(() => {
-        btn.textContent = 'Send Message';
+        btn.textContent = currentLang === 'zh' ? '发送消息' : 'Send Message';
         btn.style.background = '';
         e.target.reset();
       }, 2500);
+    }
+
+    // ---- i18n LANGUAGE TOGGLE ----
+    let currentLang = 'en';
+
+    const zh = {
+      'nav.work': '作品',
+      'nav.experience': '经历',
+      'nav.about': '关于',
+      'nav.contact': '联系',
+      'hero.greeting': '你好，我是子安',
+      'hero.title': '我设计人们<br>喜爱的产品',
+      'hero.subtitle': '产品设计师，打造以用户为中心的数字体验，兼顾美感与功能。',
+      'hero.cta': '查看作品',
+      'hero.scroll': '下滑',
+      'projects.label': '作品',
+      'projects.title': '精选项目',
+      'projects.viewProject': '查看项目 →',
+      'journey.label': '经历',
+      'journey.title': '我的旅程',
+      'journey.expand': '点击展开',
+      'journey.role1': '顾问',
+      'journey.role2': '产品经理',
+      'journey.role3': '产品经理',
+      'journey.role4': '软件工程实习生',
+      'journey.education': '教育背景',
+      'journey.certifications': '专业认证',
+      'about.label': '关于',
+      'about.title': '关于我',
+      'about.bio1': '我是孟子安 — 摄影师、痴迷产品的UX思考者、以及一名纽约的开发者。多年来我一直在技术与设计的交叉点工作，为企业提供自动化和数字转型咨询，同时将创造力倾注于打造有温度的应用和体验。',
+      'about.bio2': '不做产品的时候，你会发现我在相机后面追逐光影、探索胶片。正是这种不安分的好奇心驱使我不断构建 — 我被值得解决的问题和自己真正想用的产品所吸引。',
+      'contact.label': '联系我',
+      'contact.title': '一起创造',
+      'contact.subtitle': '有项目想法或者只是想打个招呼？期待您的来信。',
+      'contact.name': '姓名',
+      'contact.namePh': '您的姓名',
+      'contact.email': '邮箱',
+      'contact.message': '留言',
+      'contact.messagePh': '聊聊您的项目...',
+      'contact.send': '发送消息'
+    };
+
+    const en = {
+      'nav.work': 'Work',
+      'nav.experience': 'Experience',
+      'nav.about': 'About',
+      'nav.contact': 'Contact',
+      'hero.greeting': "Hello, I'm Zian",
+      'hero.title': 'I design products<br>people love to use',
+      'hero.subtitle': 'Product designer crafting thoughtful, user-centered digital experiences that balance beauty with function.',
+      'hero.cta': 'View My Work',
+      'hero.scroll': 'Scroll',
+      'projects.label': 'Work',
+      'projects.title': 'Selected Projects',
+      'projects.viewProject': 'View Project →',
+      'journey.label': 'Journey',
+      'journey.title': "Where I've been",
+      'journey.expand': 'tap to expand',
+      'journey.role1': 'Consultant',
+      'journey.role2': 'Product Manager',
+      'journey.role3': 'Product Manager',
+      'journey.role4': 'Software Engineer Intern',
+      'journey.education': 'Education',
+      'journey.certifications': 'Certifications',
+      'about.label': 'About',
+      'about.title': 'A bit about me',
+      'about.bio1': "I'm Zian Meng — a photographer, product-obsessed UX thinker, and builder based in New York. I've spent years at the intersection of technology and design, consulting for companies on automation and digital transformation, while pouring my creative energy into apps and experiences that feel human.",
+      'about.bio2': "When I'm not shipping products, you'll find me behind a camera lens, chasing light and experimenting with film. That restless curiosity is why I build — I'm drawn to problems worth solving and products I actually care about using myself.",
+      'contact.label': 'Get in Touch',
+      'contact.title': "Let's build together",
+      'contact.subtitle': "Have a project in mind or just want to say hi? I'd love to hear from you.",
+      'contact.name': 'Name',
+      'contact.namePh': 'Your name',
+      'contact.email': 'Email',
+      'contact.message': 'Message',
+      'contact.messagePh': 'Tell me about your project...',
+      'contact.send': 'Send Message'
+    };
+
+    function toggleLang(e) {
+      e.preventDefault();
+      currentLang = currentLang === 'en' ? 'zh' : 'en';
+      const dict = currentLang === 'zh' ? zh : en;
+      const toggle = document.querySelector('.lang-toggle');
+      toggle.textContent = currentLang === 'zh' ? 'EN' : '中文';
+      document.documentElement.lang = currentLang === 'zh' ? 'zh-CN' : 'en';
+
+      // Swap all data-i18n elements
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          if (el.getAttribute('data-i18n-html') === 'true') {
+            el.innerHTML = dict[key];
+          } else {
+            el.textContent = dict[key];
+          }
+        }
+      });
+
+      // Swap placeholders
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (dict[key]) el.placeholder = dict[key];
+      });
+
+      // Swap overlay text
+      document.querySelectorAll('.project-thumb-overlay').forEach(el => {
+        el.textContent = dict['projects.viewProject'];
+      });
     }
   </script>
 
