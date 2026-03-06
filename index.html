@@ -68,13 +68,13 @@
 
     /* ---- HERO ---- */
     .hero {
-      min-height: 100vh;
+      min-height: 80vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 6rem 2rem 4rem;
+      padding: 6rem 2rem 3rem;
       position: relative;
     }
 
@@ -147,6 +147,45 @@
     .hero-cta:hover {
       background: var(--terracotta-light);
       transform: translateY(-2px);
+    }
+
+    /* ---- SCROLL INDICATOR ---- */
+    .scroll-indicator {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 1.2s;
+    }
+
+    .scroll-indicator span {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .scroll-arrow {
+      width: 24px;
+      height: 24px;
+      border-right: 2px solid var(--terracotta);
+      border-bottom: 2px solid var(--terracotta);
+      transform: rotate(45deg);
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); opacity: 1; }
+      50% { transform: rotate(45deg) translateY(8px); opacity: 0.5; }
+    }
+
+    .scroll-indicator.hidden {
+      opacity: 0 !important;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
     }
 
     /* ---- SECTIONS ---- */
@@ -846,6 +885,10 @@
     <h1>I design products<br>people love to use</h1>
     <p>Product designer crafting thoughtful, user-centered digital experiences that balance beauty with function.</p>
     <a href="#projects" class="hero-cta">View My Work</a>
+    <div class="scroll-indicator" id="scroll-indicator">
+      <span>Scroll</span>
+      <div class="scroll-arrow"></div>
+    </div>
   </section>
 
   <!-- ABOUT -->
@@ -1060,6 +1103,13 @@
         observer.observe(el);
       });
     });
+
+    // Hide scroll indicator on scroll
+    const scrollInd = document.getElementById('scroll-indicator');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 60) scrollInd.classList.add('hidden');
+      else scrollInd.classList.remove('hidden');
+    }, { passive: true });
 
     // Scroll progress bar
     const bar = document.getElementById('progress-bar');
