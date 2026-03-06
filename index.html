@@ -958,13 +958,14 @@
           <div class="project-thumb project-thumb-1">📸<div class="project-thumb-overlay">View Project →</div></div>
           <div class="project-info">
             <h3>Photo Pal</h3>
-            <p>The all-in-one shoot management app for photographers. Track bookings, manage gear, plan travel logistics, and stay on top of your schedule.</p>
+            <p>The all-in-one shoot planner for professional photographers. Track clients, gear, weather, travel times, golden hour, finances, and deliverables — all in one place.</p>
             <div class="project-tags">
               <span>Swift</span>
               <span>SwiftUI</span>
               <span>iOS App</span>
               <span>MapKit</span>
               <span>CloudKit</span>
+              <span>WeatherKit</span>
             </div>
           </div>
         </div>
@@ -1140,7 +1141,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2026 Zian Meng &nbsp;·&nbsp; v1.19</p>
+    <p>&copy; 2026 Zian Meng &nbsp;·&nbsp; v1.20</p>
   </footer>
 
   <script>
@@ -1215,18 +1216,21 @@
         emoji: '📸',
         gradient: 'linear-gradient(135deg, #1A2A3D, #2A4A6B)',
         title: 'Photo Pal',
-        subtitle: 'Shoot Management for Photographers',
-        description: 'Photo Pal is the all-in-one iOS app built for working photographers. Manage your entire shoot calendar, track clients and bookings, organize your gear inventory, and plan travel logistics between locations — all from one place. From headshot sessions to weddings, Photo Pal keeps your photography business running smoothly.',
+        subtitle: 'Plan, Track & Manage Shoots',
+        description: 'Photo Pal is a shoot management app built for professional photographers. Plan every detail of your shoots, manage your gear inventory, and keep your freelance business organized — from client bookings and finances to weather forecasts and golden hour timing.',
         features: [
-          'Smart dashboard with quick stats, daily schedule, and travel timeline with real-time driving estimates',
-          'Full shoot management — list and calendar views, overlap detection, and scheduling conflict warnings',
-          'Detailed shoot pages with location maps, client info, pricing, and travel time from home or previous shoot',
-          'Gear inventory system organized by category (cameras, lenses, lighting, accessories) with detailed specs',
-          'Intelligent travel planning that calculates drive times between shoots and flags tight turnarounds',
-          'Customizable shoot types, preferred lenses, and home studio location for personalized travel calculations',
-          'iCloud sync to keep everything backed up and in sync across devices'
+          'Create and manage shoots with client details, locations, gear lists, shot lists, and deliverables',
+          'Calendar and list views with status filtering and schedule conflict detection for overlapping shoots',
+          'AI-generated shot list suggestions and gear recommendations tailored to your shoot type',
+          'Weather forecasts with hourly breakdowns, plus golden hour and blue hour detection for optimal lighting',
+          'Automatic travel time estimates from your home studio or previous shoot (driving, transit, walking)',
+          'Full gear inventory with specs — catalog 200+ cameras, lenses, and accessories with per-shoot packing lists',
+          'Client and financial tracking: quotes, payments, balance-due, and revenue charts (weekly/monthly/quarterly/yearly)',
+          'Smart dashboard with quick stats, travel conflict timeline, and customizable section layout',
+          'Deliverables and shot list tracking with deadlines, status updates, and mood board support',
+          'iCloud sync across devices, bilingual support (English & Chinese), and dark mode'
         ],
-        tags: ['Swift', 'SwiftUI', 'MapKit', 'CloudKit', 'iOS App'],
+        tags: ['Swift', 'SwiftUI', 'MapKit', 'CloudKit', 'WeatherKit', 'CoreData', 'iOS App'],
         images: ['images/photopal-dashboard.png', 'images/photopal-shoots.png', 'images/photopal-calendar.png', 'images/photopal-shoot-detail-wedding.png', 'images/photopal-shoot-detail-headshots.png', 'images/photopal-shoot-detail-realestate.png', 'images/photopal-shoot-detail-product.png', 'images/photopal-gear.png', 'images/photopal-gear-detail.png', 'images/photopal-settings.png']
       },
       autosync: {
