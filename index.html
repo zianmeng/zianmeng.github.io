@@ -625,6 +625,177 @@
       font-size: 1.05rem;
     }
 
+    /* ---- JOURNEY / RESUME TIMELINE ---- */
+    .journey-section { background: var(--warm-bg); }
+
+    .journey-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .timeline {
+      position: relative;
+      padding: 1rem 0;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 28px;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: var(--sand);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 72px;
+      margin-bottom: 2.5rem;
+      cursor: pointer;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: 18px;
+      top: 4px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--cream);
+      border: 3px solid var(--sand);
+      transition: border-color 0.3s, background 0.3s, transform 0.3s;
+      z-index: 1;
+    }
+
+    .timeline-item:hover .timeline-dot,
+    .timeline-item.active .timeline-dot {
+      border-color: var(--terracotta);
+      background: var(--terracotta);
+      transform: scale(1.2);
+    }
+
+    .timeline-date {
+      font-size: 0.75rem;
+      color: var(--terracotta);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .timeline-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      color: var(--forest);
+      margin-bottom: 0.15rem;
+    }
+
+    .timeline-company {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    .timeline-item.active .timeline-details {
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    .timeline-details p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-expand-hint {
+      font-size: 0.75rem;
+      color: var(--sand);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .timeline-item:hover .timeline-expand-hint {
+      color: var(--terracotta);
+    }
+
+    .timeline-item.active .timeline-expand-hint { display: none; }
+
+    .journey-education {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--sand);
+    }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .edu-card {
+      background: var(--cream);
+      border-radius: 14px;
+      padding: 1.3rem;
+      border: 1px solid var(--sand);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .edu-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(44,44,44,0.06);
+    }
+
+    .edu-card h4 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
+      color: var(--forest);
+      margin-bottom: 0.3rem;
+    }
+
+    .edu-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .cert-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+      list-style: none;
+    }
+
+    .cert-list li {
+      padding: 0.4rem 0.9rem;
+      background: var(--cream);
+      border: 1px solid var(--sand);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      color: var(--forest);
+      font-weight: 500;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .cert-list li:hover {
+      background: var(--terracotta);
+      color: #fff;
+      border-color: var(--terracotta);
+    }
+
+    @media (max-width: 768px) {
+      .edu-grid { grid-template-columns: 1fr; }
+    }
+
     body.modal-open { overflow: hidden; }
 
     @media (max-width: 768px) {
@@ -659,6 +830,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#journey">Journey</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -680,15 +852,17 @@
       <div class="about-text">
         <p class="section-label">About</p>
         <h2 class="section-title">A bit about me</h2>
-        <p>I'm Zian Meng, a product designer passionate about creating digital experiences that feel intuitive and delightful. I believe great design sits at the intersection of empathy, creativity, and problem-solving.</p>
-        <p>When I'm not pushing pixels, you'll find me exploring new coffee shops, sketching ideas in my notebook, or learning something new.</p>
+        <p>I'm Zian Meng — a photographer, product-obsessed UX thinker, and builder based in New York. I've spent years at the intersection of technology and design, consulting for companies on automation and digital transformation, while pouring my creative energy into apps and experiences that feel human.</p>
+        <p>When I'm not shipping products, you'll find me behind a camera lens, chasing light and experimenting with film photography — which is exactly what led me to build Grainify.</p>
         <ul class="skills-list">
-          <li>UI/UX Design</li>
-          <li>Prototyping</li>
-          <li>User Research</li>
-          <li>Design Systems</li>
+          <li>Product Design</li>
+          <li>UX Research</li>
+          <li>Photography</li>
+          <li>Swift / SwiftUI</li>
+          <li>React</li>
           <li>Figma</li>
-          <li>Interaction Design</li>
+          <li>AWS</li>
+          <li>Automation</li>
         </ul>
       </div>
     </div>
@@ -738,6 +912,83 @@
           </div>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY / RESUME -->
+  <section id="journey" class="journey-section">
+    <div class="journey-wrapper">
+      <p class="section-label reveal">Journey</p>
+      <h2 class="section-title reveal">Where I've been</h2>
+
+      <div class="timeline reveal">
+        <div class="timeline-item" onclick="toggleTimeline(this)">
+          <div class="timeline-dot"></div>
+          <p class="timeline-date">July 2023 — Present</p>
+          <h3 class="timeline-title">Consultant</h3>
+          <p class="timeline-company">Sumitomo Corporation of Americas (SCSK)</p>
+          <span class="timeline-expand-hint">tap to expand</span>
+          <div class="timeline-details">
+            <p>Drove automation initiatives migrating data from SAP R/3 to AWS S3, creating real-time PowerBI dashboards and reducing processing time by 85%.</p>
+            <p>Built data visualization systems using Power Automate and Power BI, saving 20+ hours per month. Directed cross-functional projects that cut hiring cycles from 30 days to 5. Led a company-wide Copilot demo showcasing practical AI applications.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" onclick="toggleTimeline(this)">
+          <div class="timeline-dot"></div>
+          <p class="timeline-date">Nov 2021 — Dec 2022</p>
+          <h3 class="timeline-title">Product Manager</h3>
+          <p class="timeline-company">GreatGetaways</p>
+          <span class="timeline-expand-hint">tap to expand</span>
+          <div class="timeline-details">
+            <p>Developed RPA solutions for customer support, cutting processing time by 80% and operational costs by 45%. Crafted go-to-market strategies that achieved a 15% rise in conversion rates within the first quarter.</p>
+            <p>Launched a personalized recommendation engine, increasing CTR by 65% and reducing early exits by 85%.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" onclick="toggleTimeline(this)">
+          <div class="timeline-dot"></div>
+          <p class="timeline-date">Apr 2021 — Nov 2021</p>
+          <h3 class="timeline-title">Product Manager</h3>
+          <p class="timeline-company">Edugionville</p>
+          <span class="timeline-expand-hint">tap to expand</span>
+          <div class="timeline-details">
+            <p>Designed and launched a gamified web-based platform for educating children about various industries and careers. Conducted extensive user research, identifying customer pain points and translating insights into actionable product improvements.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item" onclick="toggleTimeline(this)">
+          <div class="timeline-dot"></div>
+          <p class="timeline-date">2020</p>
+          <h3 class="timeline-title">Software Engineer Intern</h3>
+          <p class="timeline-company">BehAIvior</p>
+          <span class="timeline-expand-hint">tap to expand</span>
+          <div class="timeline-details">
+            <p>Designed and developed a React-based web app integrating fitness device data with an AI model supporting addiction rehabilitation, helping raise $1.1M in funding.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="journey-education reveal">
+        <h3 class="section-title" style="font-size: 1.4rem;">Education</h3>
+        <div class="edu-grid">
+          <div class="edu-card">
+            <h4>Northeastern University</h4>
+            <p>M.S. Project Management, 2022</p>
+          </div>
+          <div class="edu-card">
+            <h4>University of Pittsburgh</h4>
+            <p>B.S. Computer Science, 2020</p>
+          </div>
+        </div>
+
+        <h3 class="section-title" style="font-size: 1.1rem; margin-top: 1.5rem;">Certifications</h3>
+        <ul class="cert-list">
+          <li>AWS Solutions Architect</li>
+          <li>AWS AI Practitioner</li>
+          <li>CAPM</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -895,6 +1146,13 @@
       const modal = document.getElementById('project-modal');
       modal.classList.remove('active');
       document.body.classList.remove('modal-open');
+    }
+
+    // Timeline toggle
+    function toggleTimeline(el) {
+      const wasActive = el.classList.contains('active');
+      document.querySelectorAll('.timeline-item').forEach(i => i.classList.remove('active'));
+      if (!wasActive) el.classList.add('active');
     }
 
     // Close modal on Escape key
