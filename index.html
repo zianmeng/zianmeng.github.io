@@ -8,16 +8,16 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --cream: #FDF6EC;
-      --warm-bg: #FAF0E4;
-      --terracotta: #BC4436;
-      --terracotta-light: #CC6155;
-      --forest: #2D4A3E;
-      --charcoal: #2C2C2C;
-      --muted: #7A7068;
-      --sand: #E8D5BE;
-      --peach: #F2C4A0;
-      --soft-white: #FFFBF5;
+      --cream: #1A1612;
+      --warm-bg: #211D18;
+      --terracotta: #D4874D;
+      --terracotta-light: #E09E6A;
+      --forest: #E8DDD0;
+      --charcoal: #F0E8DC;
+      --muted: #9B8E80;
+      --sand: #3A332B;
+      --peach: #D4874D;
+      --soft-white: #141110;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -41,9 +41,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(253, 246, 236, 0.85);
+      background: rgba(26, 22, 18, 0.88);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(200, 180, 160, 0.2);
+      border-bottom: 1px solid rgba(58, 51, 43, 0.5);
     }
 
     nav .logo {
@@ -83,8 +83,8 @@
       position: absolute;
       top: -80px; right: -120px;
       width: 400px; height: 400px;
-      background: radial-gradient(circle, var(--peach) 0%, transparent 70%);
-      opacity: 0.5;
+      background: radial-gradient(circle, #4A2E1A 0%, transparent 70%);
+      opacity: 0.6;
       border-radius: 50%;
       pointer-events: none;
     }
@@ -94,8 +94,8 @@
       position: absolute;
       bottom: -60px; left: -100px;
       width: 300px; height: 300px;
-      background: radial-gradient(circle, var(--sand) 0%, transparent 70%);
-      opacity: 0.4;
+      background: radial-gradient(circle, #3A2215 0%, transparent 70%);
+      opacity: 0.5;
       border-radius: 50%;
       pointer-events: none;
     }
@@ -181,7 +181,7 @@
     .about-image {
       width: 100%;
       aspect-ratio: 4/5;
-      background: linear-gradient(135deg, var(--sand), var(--peach));
+      background: linear-gradient(135deg, #2E2520, #4A3528);
       border-radius: 20px;
       display: flex;
       align-items: center;
@@ -195,7 +195,7 @@
       width: 80px;
       height: 80px;
       border-radius: 50%;
-      background: rgba(255,255,255,0.5);
+      background: rgba(212, 135, 77, 0.2);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -253,7 +253,7 @@
 
     .project-card:hover {
       transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(44, 44, 44, 0.08);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
     }
 
     .project-thumb {
@@ -266,9 +266,9 @@
       position: relative;
     }
 
-    .project-thumb-1 { background: linear-gradient(135deg, #E8C4A0, #CC6155); }
-    .project-thumb-2 { background: linear-gradient(135deg, #A0C4B8, #5A8A7A); }
-    .project-thumb-3 { background: linear-gradient(135deg, #C4A0D4, #8A5A9A); }
+    .project-thumb-1 { background: linear-gradient(135deg, #3D2A1A, #6B3A25); }
+    .project-thumb-2 { background: linear-gradient(135deg, #1A2E28, #2A4A3E); }
+    .project-thumb-3 { background: linear-gradient(135deg, #2E1F35, #4A2D55); }
 
     .project-info { padding: 1.5rem; }
 
@@ -425,11 +425,11 @@
     .project-thumb-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(30, 20, 18, 0.65);
+      background: rgba(212, 135, 77, 0.2);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #fff;
+      color: #E8DDD0;
       font-size: 0.9rem;
       font-weight: 600;
       letter-spacing: 0.06em;
@@ -455,7 +455,7 @@
     }
     .about-image:hover {
       transform: rotate(-2deg) scale(1.02);
-      box-shadow: 0 30px 60px rgba(44, 44, 44, 0.12);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
     }
 
     /* ---- SKILL TAGS ---- */
@@ -491,8 +491,8 @@
     .modal-backdrop {
       position: absolute;
       inset: 0;
-      background: rgba(30, 20, 18, 0.6);
-      backdrop-filter: blur(6px);
+      background: rgba(10, 8, 6, 0.75);
+      backdrop-filter: blur(8px);
     }
 
     .modal-content {
@@ -530,8 +530,8 @@
       height: 36px;
       border-radius: 50%;
       border: none;
-      background: rgba(255,255,255,0.85);
-      color: var(--charcoal);
+      background: rgba(26, 22, 18, 0.75);
+      color: var(--muted);
       font-size: 1.2rem;
       cursor: pointer;
       display: flex;
@@ -542,7 +542,7 @@
     }
 
     .modal-close:hover {
-      background: #fff;
+      background: rgba(26, 22, 18, 0.9);
       transform: scale(1.1);
     }
 
@@ -752,7 +752,7 @@
 
     .edu-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(44,44,44,0.06);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     }
 
     .edu-card h4 {
@@ -1032,7 +1032,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2026 Zian Meng. Crafted with care.</p>
+    <p>&copy; 2026 Zian Meng &nbsp;·&nbsp; v1.0</p>
   </footer>
 
   <script>
@@ -1070,7 +1070,7 @@
     const projectData = {
       grainify: {
         emoji: '🎞️',
-        gradient: 'linear-gradient(135deg, #C4A0D4, #8A5A9A)',
+        gradient: 'linear-gradient(135deg, #2E1F35, #4A2D55)',
         title: 'Grainify',
         subtitle: 'Film Camera Simulator for iPhone',
         description: 'Grainify brings the analog photography experience to your pocket. Instead of instant digital shots, you load a roll of film — chosen from 9 meticulously recreated stocks like Kodak Portra 400, Fujifilm Velvia 50, and CineStill 800T — and shoot until the roll is full. Then you develop it in a virtual darkroom and see your photos for the first time, just like picking up prints from a photo lab.',
@@ -1087,7 +1087,7 @@
       },
       photopal: {
         emoji: '📸',
-        gradient: 'linear-gradient(135deg, #E8C4A0, #CC6155)',
+        gradient: 'linear-gradient(135deg, #3D2A1A, #6B3A25)',
         title: 'Photo Pal',
         subtitle: 'Coming Soon',
         description: null,
@@ -1096,7 +1096,7 @@
       },
       autosync: {
         emoji: '🔄',
-        gradient: 'linear-gradient(135deg, #A0C4B8, #5A8A7A)',
+        gradient: 'linear-gradient(135deg, #1A2E28, #2A4A3E)',
         title: 'AutoSync',
         subtitle: 'Coming Soon',
         description: null,
@@ -1165,7 +1165,7 @@
       e.preventDefault();
       const btn = e.target.querySelector('button');
       btn.textContent = 'Sent! ✓';
-      btn.style.background = '#2D4A3E';
+      btn.style.background = '#2A4A3E';
       setTimeout(() => {
         btn.textContent = 'Send Message';
         btn.style.background = '';
