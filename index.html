@@ -470,6 +470,169 @@
       transform: translateY(-2px);
     }
 
+    /* ---- PROJECT MODAL ---- */
+    .project-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 300;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+
+    .project-modal.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(30, 20, 18, 0.6);
+      backdrop-filter: blur(6px);
+    }
+
+    .modal-content {
+      position: relative;
+      background: var(--cream);
+      border-radius: 20px;
+      max-width: 720px;
+      width: 90%;
+      max-height: 85vh;
+      overflow-y: auto;
+      transform: translateY(30px) scale(0.97);
+      transition: transform 0.35s ease;
+    }
+
+    .project-modal.active .modal-content {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-hero {
+      width: 100%;
+      aspect-ratio: 16/8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      border-radius: 20px 20px 0 0;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.85);
+      color: var(--charcoal);
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-close:hover {
+      background: #fff;
+      transform: scale(1.1);
+    }
+
+    .modal-body {
+      padding: 2rem 2.5rem 2.5rem;
+    }
+
+    .modal-body h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      color: var(--forest);
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-body .modal-subtitle {
+      font-size: 0.9rem;
+      color: var(--terracotta);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-body .modal-description {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .modal-body h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      color: var(--forest);
+      margin-bottom: 0.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .modal-features {
+      list-style: none;
+      padding: 0;
+    }
+
+    .modal-features li {
+      color: var(--muted);
+      font-size: 0.95rem;
+      padding: 0.4rem 0;
+      padding-left: 1.4rem;
+      position: relative;
+    }
+
+    .modal-features li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--terracotta);
+      font-weight: 600;
+    }
+
+    .modal-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--sand);
+    }
+
+    .modal-tags span {
+      font-size: 0.8rem;
+      padding: 0.35rem 0.85rem;
+      background: var(--warm-bg);
+      border-radius: 50px;
+      color: var(--forest);
+      font-weight: 500;
+    }
+
+    .modal-coming-soon {
+      text-align: center;
+      padding: 2rem 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    body.modal-open { overflow: hidden; }
+
+    @media (max-width: 768px) {
+      .modal-content { width: 95%; max-height: 90vh; }
+      .modal-body { padding: 1.5rem; }
+      .modal-body h2 { font-size: 1.5rem; }
+    }
+
     /* ---- RESPONSIVE ---- */
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
@@ -538,7 +701,7 @@
       <h2 class="section-title reveal">Selected Projects</h2>
       <div class="projects-grid">
 
-        <div class="project-card reveal">
+        <div class="project-card reveal" data-project="photopal" onclick="openModal('photopal')">
           <div class="project-thumb project-thumb-1">📸<div class="project-thumb-overlay">View Project →</div></div>
           <div class="project-info">
             <h3>Photo Pal</h3>
@@ -549,10 +712,10 @@
           </div>
         </div>
 
-        <div class="project-card reveal">
-          <div class="project-thumb project-thumb-2">💾<div class="project-thumb-overlay">View Project →</div></div>
+        <div class="project-card reveal" data-project="autosync" onclick="openModal('autosync')">
+          <div class="project-thumb project-thumb-2">🔄<div class="project-thumb-overlay">View Project →</div></div>
           <div class="project-info">
-            <h3>AutoBackup</h3>
+            <h3>AutoSync</h3>
             <p>Details coming soon.</p>
             <div class="project-tags">
               <span>Coming Soon</span>
@@ -560,7 +723,7 @@
           </div>
         </div>
 
-        <div class="project-card reveal">
+        <div class="project-card reveal" data-project="grainify" onclick="openModal('grainify')">
           <div class="project-thumb project-thumb-3">🎞️<div class="project-thumb-overlay">View Project →</div></div>
           <div class="project-info">
             <h3>Grainify</h3>
@@ -610,6 +773,12 @@
     </div>
   </section>
 
+  <!-- PROJECT MODAL -->
+  <div class="project-modal" id="project-modal">
+    <div class="modal-backdrop" onclick="closeModal()"></div>
+    <div class="modal-content" id="modal-content"></div>
+  </div>
+
   <!-- FOOTER -->
   <footer>
     <p>&copy; 2026 Zian Meng. Crafted with care.</p>
@@ -644,6 +813,93 @@
         nav.classList.remove('nav-hidden');
       }
       lastScroll = current;
+    });
+
+    // Project modal data
+    const projectData = {
+      grainify: {
+        emoji: '🎞️',
+        gradient: 'linear-gradient(135deg, #C4A0D4, #8A5A9A)',
+        title: 'Grainify',
+        subtitle: 'Film Camera Simulator for iPhone',
+        description: 'Grainify brings the analog photography experience to your pocket. Instead of instant digital shots, you load a roll of film — chosen from 9 meticulously recreated stocks like Kodak Portra 400, Fujifilm Velvia 50, and CineStill 800T — and shoot until the roll is full. Then you develop it in a virtual darkroom and see your photos for the first time, just like picking up prints from a photo lab.',
+        features: [
+          '9 film stock simulations with accurate color science, grain, and tonal characteristics',
+          'Realistic roll-based shooting — 12, 24, or 36 exposures per roll',
+          'Darkroom-style developing with animated processing',
+          'Film Lab for browsing developed rolls and importing your own photos for film processing',
+          'Double exposure mode, flash toggle, and iPhone 16 Camera Control support',
+          'Press and hold any film canister to learn about the stock\'s history, characteristics, and best uses',
+          'Built entirely in SwiftUI'
+        ],
+        tags: ['Swift', 'SwiftUI', 'AVFoundation', 'Core Image', 'iOS App']
+      },
+      photopal: {
+        emoji: '📸',
+        gradient: 'linear-gradient(135deg, #E8C4A0, #CC6155)',
+        title: 'Photo Pal',
+        subtitle: 'Coming Soon',
+        description: null,
+        features: null,
+        tags: null
+      },
+      autosync: {
+        emoji: '🔄',
+        gradient: 'linear-gradient(135deg, #A0C4B8, #5A8A7A)',
+        title: 'AutoSync',
+        subtitle: 'Coming Soon',
+        description: null,
+        features: null,
+        tags: null
+      }
+    };
+
+    function openModal(projectId) {
+      const data = projectData[projectId];
+      if (!data) return;
+      const modal = document.getElementById('project-modal');
+      const content = document.getElementById('modal-content');
+
+      let html = `
+        <div class="modal-hero" style="background: ${data.gradient}">
+          <span style="font-size:4rem">${data.emoji}</span>
+          <button class="modal-close" onclick="closeModal()">✕</button>
+        </div>
+        <div class="modal-body">
+          <h2>${data.title}</h2>
+          <p class="modal-subtitle">${data.subtitle}</p>`;
+
+      if (data.description) {
+        html += `<p class="modal-description">${data.description}</p>`;
+        if (data.features) {
+          html += `<h3>Features</h3><ul class="modal-features">`;
+          data.features.forEach(f => { html += `<li>${f}</li>`; });
+          html += `</ul>`;
+        }
+        if (data.tags) {
+          html += `<div class="modal-tags">`;
+          data.tags.forEach(t => { html += `<span>${t}</span>`; });
+          html += `</div>`;
+        }
+      } else {
+        html += `<p class="modal-coming-soon">Full project details coming soon. Stay tuned!</p>`;
+      }
+
+      html += `</div>`;
+      content.innerHTML = html;
+      modal.classList.add('active');
+      document.body.classList.add('modal-open');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('project-modal');
+      modal.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    }
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
     });
 
     // Form handler
