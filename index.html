@@ -689,6 +689,40 @@
       font-size: 1.05rem;
     }
 
+    .modal-gallery {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding: 1.5rem 0;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .modal-gallery::-webkit-scrollbar { height: 4px; }
+    .modal-gallery::-webkit-scrollbar-track { background: var(--sand); border-radius: 2px; }
+    .modal-gallery::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 2px; }
+
+    .modal-phone-frame {
+      flex: 0 0 auto;
+      width: 180px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 2px solid var(--sand);
+      scroll-snap-align: start;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      background: #000;
+    }
+
+    .modal-phone-frame:hover {
+      transform: scale(1.03);
+    }
+
+    .modal-phone-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     /* ---- JOURNEY / RESUME TIMELINE ---- */
     .journey-section { background: var(--warm-bg); }
 
@@ -924,9 +958,13 @@
           <div class="project-thumb project-thumb-1">📸<div class="project-thumb-overlay">View Project →</div></div>
           <div class="project-info">
             <h3>Photo Pal</h3>
-            <p>Details coming soon.</p>
+            <p>The all-in-one shoot management app for photographers. Track bookings, manage gear, plan travel logistics, and stay on top of your schedule.</p>
             <div class="project-tags">
-              <span>Coming Soon</span>
+              <span>Swift</span>
+              <span>SwiftUI</span>
+              <span>iOS App</span>
+              <span>MapKit</span>
+              <span>CloudKit</span>
             </div>
           </div>
         </div>
@@ -1102,7 +1140,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2026 Zian Meng &nbsp;·&nbsp; v1.16</p>
+    <p>&copy; 2026 Zian Meng &nbsp;·&nbsp; v1.17</p>
   </footer>
 
   <script>
@@ -1175,12 +1213,21 @@
       },
       photopal: {
         emoji: '📸',
-        gradient: 'linear-gradient(135deg, #3D2A1A, #6B3A25)',
+        gradient: 'linear-gradient(135deg, #1A2A3D, #2A4A6B)',
         title: 'Photo Pal',
-        subtitle: 'Coming Soon',
-        description: null,
-        features: null,
-        tags: null
+        subtitle: 'Shoot Management for Photographers',
+        description: 'Photo Pal is the all-in-one iOS app built for working photographers. Manage your entire shoot calendar, track clients and bookings, organize your gear inventory, and plan travel logistics between locations — all from one place. From headshot sessions to weddings, Photo Pal keeps your photography business running smoothly.',
+        features: [
+          'Smart dashboard with quick stats, daily schedule, and travel timeline with real-time driving estimates',
+          'Full shoot management — list and calendar views, overlap detection, and scheduling conflict warnings',
+          'Detailed shoot pages with location maps, client info, pricing, and travel time from home or previous shoot',
+          'Gear inventory system organized by category (cameras, lenses, lighting, accessories) with detailed specs',
+          'Intelligent travel planning that calculates drive times between shoots and flags tight turnarounds',
+          'Customizable shoot types, preferred lenses, and home studio location for personalized travel calculations',
+          'iCloud sync to keep everything backed up and in sync across devices'
+        ],
+        tags: ['Swift', 'SwiftUI', 'MapKit', 'CloudKit', 'iOS App'],
+        images: ['images/photopal-shoots.png', 'images/photopal-dashboard.png', 'images/photopal-calendar.png', 'images/photopal-details.png', 'images/photopal-gear.png', 'images/photopal-gear-details.png', 'images/photopal-settings.png']
       },
       autosync: {
         emoji: '🔄',
@@ -1210,6 +1257,13 @@
 
       if (data.description) {
         html += `<p class="modal-description">${data.description}</p>`;
+        if (data.images && data.images.length) {
+          html += `<div class="modal-gallery">`;
+          data.images.forEach(src => {
+            html += `<div class="modal-phone-frame"><img src="${src}" alt="${data.title} screenshot" loading="lazy"></div>`;
+          });
+          html += `</div>`;
+        }
         if (data.features) {
           html += `<h3>Features</h3><ul class="modal-features">`;
           data.features.forEach(f => { html += `<li>${f}</li>`; });

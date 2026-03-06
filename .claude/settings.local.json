@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh auth status)",
+      "Bash(security find-internet-password -s github.com)",
+      "Bash(security find-generic-password -s \"GitHub Desktop\")"
+    ]
+  }
+}
