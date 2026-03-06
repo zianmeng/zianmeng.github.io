@@ -500,12 +500,32 @@
     /* ---- FOOTER ---- */
     footer {
       text-align: center;
-      padding: 4rem 2rem;
+      padding: 3rem 2rem 2rem;
       font-size: 0.8rem;
       color: var(--muted);
       border-top: 1px solid rgba(74, 66, 58, 0.3);
       letter-spacing: 0.04em;
+      background: var(--cream);
     }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--terracotta); }
+
+    footer p { margin: 0; }
 
     /* ---- ANIMATIONS ---- */
     @keyframes fadeUp {
@@ -1233,7 +1253,7 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact">
+  <section id="contact" style="background: var(--soft-white);">
     <div class="contact-section reveal">
       <p class="section-label" data-i18n="contact.label">Get in Touch</p>
       <h2 class="section-title" data-i18n="contact.title">Let's build together</h2>
@@ -1271,7 +1291,13 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2026 Zian Meng &nbsp;·&nbsp; v1.39</p>
+    <div class="footer-links">
+      <a href="mailto:workingzian@gmail.com">Email</a>
+      <a href="https://heyzian.com" target="_blank" rel="noopener">Photography</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/zianmeng" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p>&copy; 2026 Zian Meng &nbsp;·&nbsp; v1.40</p>
   </footer>
 
   <script>
