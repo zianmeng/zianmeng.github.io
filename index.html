@@ -780,6 +780,24 @@
       cursor: zoom-in;
     }
 
+    .modal-screen-frame {
+      flex: 0 0 auto;
+      width: 280px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid var(--sand);
+      scroll-snap-align: start;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      background: #000;
+    }
+    .modal-screen-frame:hover { transform: scale(1.03); }
+    .modal-screen-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+      cursor: zoom-in;
+    }
+
     /* ---- LIGHTBOX ---- */
     .lightbox-overlay {
       position: fixed;
@@ -1250,7 +1268,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2026 Zian Meng &nbsp;·&nbsp; v1.31</p>
+    <p>&copy; 2026 Zian Meng &nbsp;·&nbsp; v1.32</p>
   </footer>
 
   <script>
@@ -1362,7 +1380,8 @@
           'Launches full-screen with no title bar — purpose-built for an always-on display'
         ],
         tags: ['Swift', 'SwiftUI', 'macOS App', 'SMB', 'Tailscale'],
-        images: []
+        imageStyle: 'screen',
+        images: ['images/serverstatus/1-Overview.png', 'images/serverstatus/5-Storage.png', 'images/serverstatus/2-CPU.png', 'images/serverstatus/3-Memory.png', 'images/serverstatus/4-Network.png', 'images/serverstatus/6-Services.png', 'images/serverstatus/7-Alerts.png']
       },
       autosync: {
         emoji: '🔄',
@@ -1402,8 +1421,9 @@
         html += `<p class="modal-description">${data.description}</p>`;
         if (data.images && data.images.length) {
           html += `<div class="modal-gallery">`;
+          const frameClass = data.imageStyle === 'screen' ? 'modal-screen-frame' : 'modal-phone-frame';
           data.images.forEach(src => {
-            html += `<div class="modal-phone-frame"><img src="${src}" alt="${data.title} screenshot" loading="lazy"></div>`;
+            html += `<div class="${frameClass}"><img src="${src}" alt="${data.title} screenshot" loading="lazy"></div>`;
           });
           html += `</div>`;
         }
@@ -1448,7 +1468,7 @@
 
     // Delegate click on gallery images
     document.addEventListener('click', (e) => {
-      const img = e.target.closest('.modal-phone-frame img');
+      const img = e.target.closest('.modal-phone-frame img, .modal-screen-frame img');
       if (img) {
         e.stopPropagation();
         openLightbox(img.src);
