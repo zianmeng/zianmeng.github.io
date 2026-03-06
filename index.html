@@ -319,6 +319,12 @@
       justify-content: center;
       font-size: 2.5rem;
       position: relative;
+      z-index: 1;
+    }
+
+    .project-thumb > span, .project-thumb > :not(.project-thumb-overlay) {
+      position: relative;
+      z-index: 1;
     }
 
     .project-thumb-1 { background: linear-gradient(135deg, #3D2A1A, #6B3A25); }
@@ -489,17 +495,18 @@
     .project-thumb-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(212, 135, 77, 0.2);
+      background: rgba(42, 38, 34, 0.75);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #E8DDD0;
+      color: var(--terracotta-light);
       font-size: 0.9rem;
       font-weight: 600;
       letter-spacing: 0.06em;
       font-family: 'Inter', sans-serif;
       opacity: 0;
       transition: opacity 0.4s ease;
+      z-index: 2;
     }
 
     .project-card:hover .project-thumb-overlay { opacity: 1; }
@@ -1144,7 +1151,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2026 Zian Meng &nbsp;·&nbsp; v1.22</p>
+    <p>&copy; 2026 Zian Meng &nbsp;·&nbsp; v1.23</p>
   </footer>
 
   <script>
