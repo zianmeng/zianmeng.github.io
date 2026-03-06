@@ -8,16 +8,16 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --cream: #1A1612;
-      --warm-bg: #211D18;
+      --cream: #2A2622;
+      --warm-bg: #322E29;
       --terracotta: #D4874D;
       --terracotta-light: #E09E6A;
       --forest: #E8DDD0;
       --charcoal: #F0E8DC;
-      --muted: #9B8E80;
-      --sand: #3A332B;
+      --muted: #A89E90;
+      --sand: #4A423A;
       --peach: #D4874D;
-      --soft-white: #141110;
+      --soft-white: #242018;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -41,7 +41,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(26, 22, 18, 0.88);
+      background: rgba(42, 38, 34, 0.9);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(58, 51, 43, 0.5);
     }
@@ -397,12 +397,17 @@
     }
 
     .reveal {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal.animate-in {
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.7s ease, transform 0.7s ease;
     }
 
-    .reveal.visible {
+    .reveal.animate-in.visible {
       opacity: 1;
       transform: translateY(0);
     }
@@ -530,7 +535,7 @@
       height: 36px;
       border-radius: 50%;
       border: none;
-      background: rgba(26, 22, 18, 0.75);
+      background: rgba(42, 38, 34, 0.8);
       color: var(--muted);
       font-size: 1.2rem;
       cursor: pointer;
@@ -542,7 +547,7 @@
     }
 
     .modal-close:hover {
-      background: rgba(26, 22, 18, 0.9);
+      background: rgba(42, 38, 34, 0.95);
       transform: scale(1.1);
     }
 
@@ -1036,14 +1041,25 @@
   </footer>
 
   <script>
-    // Scroll reveal
+    // Scroll reveal — add animate-in class after load to prevent flash
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.15 });
-    reveals.forEach(el => observer.observe(el));
+
+    // Wait a tick so the browser paints first, then hide off-screen elements
+    requestAnimationFrame(() => {
+      reveals.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        // Only animate elements that are below the current viewport
+        if (rect.top > window.innerHeight) {
+          el.classList.add('animate-in');
+        }
+        observer.observe(el);
+      });
+    });
 
     // Scroll progress bar
     const bar = document.getElementById('progress-bar');
