@@ -378,6 +378,7 @@
     .project-thumb-1 { background: linear-gradient(135deg, #3D2A1A, #6B3A25); }
     .project-thumb-2 { background: linear-gradient(135deg, #1A2E28, #2A4A3E); }
     .project-thumb-3 { background: linear-gradient(135deg, #2E1F35, #4A2D55); }
+    .project-thumb-4 { background: linear-gradient(135deg, #1A1F2E, #2A3555); }
 
     .project-info { padding: 1.8rem; }
 
@@ -1089,6 +1090,21 @@
           </div>
         </div>
 
+        <div class="project-card reveal" data-project="serverstatus" onclick="openModal('serverstatus')">
+          <div class="project-thumb project-thumb-4">🖥️<div class="project-thumb-overlay">View Project →</div></div>
+          <div class="project-info">
+            <h3>Server Status</h3>
+            <p>A full-screen, auto-rotating server dashboard built for a small screen on your desk. Monitor CPU, memory, storage, and network in real time with glanceable widgets and instant visual alerts.</p>
+            <div class="project-tags">
+              <span>Swift</span>
+              <span>SwiftUI</span>
+              <span>macOS App</span>
+              <span>SMB</span>
+              <span>Tailscale</span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1234,7 +1250,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2026 Zian Meng &nbsp;·&nbsp; v1.29</p>
+    <p>&copy; 2026 Zian Meng &nbsp;·&nbsp; v1.30</p>
   </footer>
 
   <script>
@@ -1326,6 +1342,27 @@
         ],
         tags: ['Swift', 'SwiftUI', 'MapKit', 'CloudKit', 'WeatherKit', 'CoreData', 'iOS App'],
         images: ['images/photopal/photopal-dashboard.png', 'images/photopal/photopal-shoots.png', 'images/photopal/photopal-calendar.png', 'images/photopal/photopal-shoot-detail-wedding.png', 'images/photopal/photopal-shoot-detail-headshots.png', 'images/photopal/photopal-shoot-detail-realestate.png', 'images/photopal/photopal-shoot-detail-product.png', 'images/photopal/photopal-gear.png', 'images/photopal/photopal-gear-detail.png', 'images/photopal/photopal-settings.png']
+      },
+      serverstatus: {
+        emoji: '🖥️',
+        gradient: 'linear-gradient(135deg, #1A1F2E, #2A3555)',
+        title: 'Server Status',
+        subtitle: 'Full-Screen Home Server Dashboard',
+        description: 'I set up a Mac mini as a home file server with external drives for my Lightroom library, accessible from my MacBook via SMB and Tailscale VPN. I needed a way to monitor everything at a glance — so I built Server Status, a full-screen dashboard designed for a small dedicated screen on my desk. It auto-rotates through real-time widgets and pulses red when something needs attention.',
+        features: [
+          'Real-time CPU usage with history sparkline',
+          'Memory gauge with used/free/total breakdown',
+          'Storage overview for all mounted volumes — external drives highlighted',
+          'Network throughput and IP addresses (local + Tailscale)',
+          'SMB file sharing and Tailscale VPN status monitoring',
+          'Live clock with date display',
+          'Alert system — screen pulses red when disks are full, services go down, or memory is critical',
+          'Auto-rotating carousel with slide animations',
+          'Keyboard controls: arrow keys to navigate, space to pause',
+          'Launches full-screen with no title bar — purpose-built for an always-on display'
+        ],
+        tags: ['Swift', 'SwiftUI', 'macOS App', 'SMB', 'Tailscale'],
+        images: []
       },
       autosync: {
         emoji: '🔄',
