@@ -280,36 +280,8 @@
 
     /* ---- ABOUT ---- */
     .about {
-      max-width: 1000px;
+      max-width: 720px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-      gap: 5rem;
-      align-items: center;
-    }
-
-    .about-image {
-      width: 100%;
-      aspect-ratio: 4/5;
-      background: linear-gradient(135deg, #2E2520, #4A3528);
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .about-image .placeholder-icon {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      background: rgba(212, 135, 77, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
     }
 
     .about-text p {
@@ -601,15 +573,6 @@
 
     .hero::before { animation: float 9s ease-in-out infinite; }
     .hero::after  { animation: float 11s ease-in-out infinite reverse; }
-
-    /* ---- ABOUT IMAGE TILT ---- */
-    .about-image {
-      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
-    }
-    .about-image:hover {
-      transform: rotate(-2deg) scale(1.02);
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
-    }
 
     /* ---- SKILL TAGS ---- */
     .skills-list li {
@@ -1120,8 +1083,7 @@
     @media (max-width: 768px) {
       nav { padding: 1.2rem 1.5rem; }
       nav .nav-links { gap: 1.5rem; }
-      .about { grid-template-columns: 1fr; gap: 2.5rem; }
-      .about-image { max-width: 280px; margin: 0 auto; }
+      .about { max-width: 100%; }
       .projects-grid { grid-template-columns: 1fr; }
       .contact-links { flex-direction: column; gap: 1rem; }
       section { padding: 5rem 1.5rem; }
@@ -1325,9 +1287,6 @@
   <!-- ABOUT -->
   <section id="about">
     <div class="about reveal">
-      <div class="about-image">
-        <div class="placeholder-icon">✦</div>
-      </div>
       <div class="about-text">
         <p class="section-label" data-i18n="about.label">About</p>
         <h2 class="section-title" data-i18n="about.title">A bit about me</h2>
