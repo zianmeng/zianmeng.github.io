@@ -1839,17 +1839,43 @@
       }
     });
 
-    // Form handler
+    // Form handler (Formspree)
     function handleSubmit(e) {
       e.preventDefault();
-      const btn = e.target.querySelector('button');
-      btn.textContent = currentLang === 'zh' ? '已发送! ✓' : 'Sent! ✓';
-      btn.style.background = '#2A4A3E';
-      setTimeout(() => {
-        btn.textContent = currentLang === 'zh' ? '发送消息' : 'Send Message';
-        btn.style.background = '';
-        e.target.reset();
-      }, 2500);
+      const form = e.target;
+      const btn = form.querySelector('button');
+      const origText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = currentLang === 'zh' ? '发送中...' : currentLang === 'es' ? 'Enviando...' : 'Sending...';
+
+      // Get your free form ID at https://formspree.io — replace YOUR_FORM_ID below
+      fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      }).then(res => {
+        if (res.ok) {
+          btn.textContent = currentLang === 'zh' ? '已发送! ✓' : currentLang === 'es' ? '¡Enviado! ✓' : 'Sent! ✓';
+          btn.style.background = '#2A4A3E';
+          form.reset();
+        } else {
+          btn.textContent = currentLang === 'zh' ? '失败 — 请重试' : currentLang === 'es' ? 'Error — inténtalo de nuevo' : 'Failed — try again';
+          btn.style.background = '#c0392b';
+        }
+        setTimeout(() => {
+          btn.textContent = origText;
+          btn.style.background = '';
+          btn.disabled = false;
+        }, 2500);
+      }).catch(() => {
+        btn.textContent = 'Error — try again';
+        btn.style.background = '#c0392b';
+        setTimeout(() => {
+          btn.textContent = origText;
+          btn.style.background = '';
+          btn.disabled = false;
+        }, 2500);
+      });
     }
 
     // ---- i18n MULTI-LANGUAGE TOGGLE ----
