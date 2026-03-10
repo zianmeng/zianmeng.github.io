@@ -359,6 +359,7 @@
       z-index: 1;
     }
 
+    .project-thumb-0 { background: linear-gradient(135deg, #1A3D2A, #2A6B45); }
     .project-thumb-1 { background: linear-gradient(135deg, #3D2A1A, #6B3A25); }
     .project-thumb-2 { background: linear-gradient(135deg, #1A2E28, #2A4A3E); }
     .project-thumb-3 { background: linear-gradient(135deg, #2E1F35, #4A2D55); }
@@ -1143,6 +1144,21 @@
       <h2 class="section-title reveal" data-i18n="projects.title">Selected Projects</h2>
       <div class="projects-grid">
 
+        <div class="project-card reveal" data-project="zbudget" onclick="openModal('zbudget')">
+          <div class="project-thumb project-thumb-0">💰<div class="project-thumb-overlay">View Project →</div></div>
+          <div class="project-info">
+            <h3 data-i18n="projects.zbudget.title">zBudget</h3>
+            <p data-i18n="projects.zbudget.desc">A personal finance app built because Mint shut down — and my friends and I still needed to budget. Privacy-first, on-device budgeting with voice input and optional bank sync.</p>
+            <div class="project-tags">
+              <span>Swift</span>
+              <span>SwiftUI</span>
+              <span>iOS App</span>
+              <span>SwiftData</span>
+              <span>StoreKit 2</span>
+            </div>
+          </div>
+        </div>
+
         <div class="project-card reveal" data-project="photopal" onclick="openModal('photopal')">
           <div class="project-thumb project-thumb-1">📸<div class="project-thumb-overlay">View Project →</div></div>
           <div class="project-info">
@@ -1394,6 +1410,25 @@
 
     // Project modal data - English
     const projectData = {
+      zbudget: {
+        emoji: '💰',
+        gradient: 'linear-gradient(135deg, #1A3D2A, #2A6B45)',
+        title: 'zBudget',
+        subtitle: 'Personal Finance for iOS',
+        description: 'When Intuit shut down Mint in early 2024, millions of users lost their go-to budgeting tool overnight. I was one of them. My friends and I relied on it to track spending, set budgets, and stay on top of bills. Nothing on the market felt right — most alternatives were either too complex, too expensive, or didn\'t respect user privacy. zBudget is a native iOS app that brings back the simplicity of personal budgeting with a modern, privacy-first approach. Built entirely in SwiftUI with on-device data storage, it gives users full control of their financial data without requiring a subscription to get started.',
+        features: [
+          'Net Worth Dashboard — Real-time overview of assets, debts, income, expenses, and savings at a glance',
+          'Multi-Account Tracking — Checking, savings, credit cards, investments, loans, and cash accounts with instant balance visibility',
+          'Smart Budgets — Category-based monthly budgets with visual progress rings and spending alerts',
+          'Bill Reminders — Track recurring bills with due dates and payment status',
+          'Savings Goals — Set targets (emergency fund, vacation, big purchases) and track progress',
+          'Voice Input — Add transactions hands-free using on-device speech recognition and Apple\'s FoundationModels LLM for natural language parsing',
+          'Bank Connection — Optional Plaid integration to sync transactions automatically',
+          'Premium Tier — Freemium model with StoreKit 2 integration (unlimited budgets, full insights, iCloud sync)'
+        ],
+        tags: ['Swift 6', 'SwiftUI', 'SwiftData', 'FoundationModels', 'StoreKit 2', 'Plaid SDK', 'iOS App'],
+        images: ['images/zbudget/01-dashboard.png', 'images/zbudget/02-accounts.png', 'images/zbudget/03-transactions.png', 'images/zbudget/04-budgets.png', 'images/zbudget/05-goals.png', 'images/zbudget/06-settings.png']
+      },
       grainify: {
         emoji: '🎞️',
         gradient: 'linear-gradient(135deg, #2E1F35, #4A2D55)',
@@ -1478,6 +1513,25 @@
 
     // Project modal data - Chinese (Simplified)
     const projectDataZH = {
+      zbudget: {
+        emoji: '💰',
+        gradient: 'linear-gradient(135deg, #1A3D2A, #2A6B45)',
+        title: 'zBudget',
+        subtitle: 'iOS个人理财应用',
+        description: '当Intuit在2024年初关闭Mint时，数百万用户一夜之间失去了他们的首选预算工具。我就是其中之一。我和朋友们依赖它来追踪支出、设定预算和管理账单。市场上没有合适的替代品——大多数要么太复杂、太贵，要么不尊重用户隐私。zBudget是一款原生iOS应用，以现代、隐私优先的方式带回简单的个人预算管理。完全使用SwiftUI构建，数据存储在设备上，让用户完全控制自己的财务数据，无需订阅即可开始使用。',
+        features: [
+          '净资产仪表板——一目了然地查看资产、债务、收入、支出和储蓄',
+          '多账户追踪——支票、储蓄、信用卡、投资、贷款和现金账户，即时查看余额',
+          '智能预算——基于类别的月度预算，带有视觉进度环和支出提醒',
+          '账单提醒——追踪定期账单的到期日和付款状态',
+          '储蓄目标——设定目标（应急基金、假期、大额购买）并追踪进度',
+          '语音输入——使用设备上的语音识别和Apple的FoundationModels LLM进行自然语言解析，免手动添加交易',
+          '银行连接——可选的Plaid集成自动同步交易',
+          '高级层——免费增值模式，支持StoreKit 2集成（无限预算、完整洞察、iCloud同步）'
+        ],
+        tags: ['Swift 6', 'SwiftUI', 'SwiftData', 'FoundationModels', 'StoreKit 2', 'Plaid SDK', 'iOS App'],
+        images: ['images/zbudget/01-dashboard.png', 'images/zbudget/02-accounts.png', 'images/zbudget/03-transactions.png', 'images/zbudget/04-budgets.png', 'images/zbudget/05-goals.png', 'images/zbudget/06-settings.png']
+      },
       grainify: {
         emoji: '🎞️',
         gradient: 'linear-gradient(135deg, #2E1F35, #4A2D55)',
@@ -1562,6 +1616,25 @@
 
     // Project modal data - Spanish
     const projectDataES = {
+      zbudget: {
+        emoji: '💰',
+        gradient: 'linear-gradient(135deg, #1A3D2A, #2A6B45)',
+        title: 'zBudget',
+        subtitle: 'Finanzas Personales para iOS',
+        description: 'Cuando Intuit cerró Mint a principios de 2024, millones de usuarios perdieron su herramienta de presupuesto preferida de la noche a la mañana. Yo fui uno de ellos. Mis amigos y yo dependíamos de ella para rastrear gastos, establecer presupuestos y mantenernos al día con las facturas. Nada en el mercado se sentía bien — la mayoría de las alternativas eran demasiado complejas, demasiado caras o no respetaban la privacidad del usuario. zBudget es una aplicación nativa de iOS que recupera la simplicidad del presupuesto personal con un enfoque moderno y centrado en la privacidad. Construida completamente en SwiftUI con almacenamiento de datos en el dispositivo, da a los usuarios control total de sus datos financieros sin requerir una suscripción para comenzar.',
+        features: [
+          'Panel de Patrimonio Neto — Vista en tiempo real de activos, deudas, ingresos, gastos y ahorros',
+          'Seguimiento Multi-Cuenta — Cuentas corrientes, ahorros, tarjetas de crédito, inversiones, préstamos y efectivo con visibilidad instantánea del saldo',
+          'Presupuestos Inteligentes — Presupuestos mensuales por categoría con anillos de progreso visual y alertas de gasto',
+          'Recordatorios de Facturas — Rastrea facturas recurrentes con fechas de vencimiento y estado de pago',
+          'Metas de Ahorro — Establece objetivos (fondo de emergencia, vacaciones, compras grandes) y rastrea el progreso',
+          'Entrada de Voz — Agrega transacciones sin manos usando reconocimiento de voz en el dispositivo y el LLM FoundationModels de Apple para análisis de lenguaje natural',
+          'Conexión Bancaria — Integración opcional de Plaid para sincronizar transacciones automáticamente',
+          'Nivel Premium — Modelo freemium con integración StoreKit 2 (presupuestos ilimitados, información completa, sincronización iCloud)'
+        ],
+        tags: ['Swift 6', 'SwiftUI', 'SwiftData', 'FoundationModels', 'StoreKit 2', 'Plaid SDK', 'iOS App'],
+        images: ['images/zbudget/01-dashboard.png', 'images/zbudget/02-accounts.png', 'images/zbudget/03-transactions.png', 'images/zbudget/04-budgets.png', 'images/zbudget/05-goals.png', 'images/zbudget/06-settings.png']
+      },
       grainify: {
         emoji: '🎞️',
         gradient: 'linear-gradient(135deg, #2E1F35, #4A2D55)',
