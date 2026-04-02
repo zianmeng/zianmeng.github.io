@@ -13,13 +13,13 @@ import { projects } from '../data/projects';
         const locale = project.locales.en;
         return (
           <div class="reveal cursor-pointer group flex gap-4 items-start" data-project={project.slug} onclick={`openModal('${project.slug}')`}>
-            {/* Small thumbnail */}
-            <div class="flex-shrink-0 w-28 h-20 rounded-lg overflow-hidden bg-stone-100">
+            {/* Thumbnail */}
+            <div class="flex-shrink-0 w-36 h-24 rounded-lg overflow-hidden bg-stone-100">
               <img
                 src={`/${project.images[0]}`}
                 alt={locale.title}
                 loading="lazy"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-400"
+                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-400"
               />
             </div>
 
