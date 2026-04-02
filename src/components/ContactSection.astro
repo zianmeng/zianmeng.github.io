@@ -1,0 +1,33 @@
+---
+import { t } from '../i18n/utils';
+---
+
+<section id="contact" class="py-12 px-6 border-t border-stone-100">
+  <div class="max-w-xl mx-auto reveal">
+    <p class="text-xs text-accent font-medium tracking-[0.2em] uppercase mb-2" data-i18n="contact.label">{t('contact.label')}</p>
+    <h2 class="font-light text-stone-900 text-2xl mb-2 tracking-tight" data-i18n="contact.title">{t('contact.title')}</h2>
+    <p class="text-stone-400 text-sm mb-6" data-i18n="contact.subtitle">{t('contact.subtitle')}</p>
+
+    <form class="flex flex-col gap-4" onsubmit="handleSubmit(event)">
+      <div>
+        <label for="name" class="text-xs font-medium text-stone-600 mb-1 block" data-i18n="contact.name">{t('contact.name')}</label>
+        <input type="text" id="name" name="name" placeholder="Your name" data-i18n-placeholder="contact.namePh" required
+          class="w-full px-3.5 py-2.5 border border-stone-200 rounded-lg bg-white text-stone-800 text-sm font-sans outline-none focus:border-accent transition-colors duration-200" />
+      </div>
+      <div>
+        <label for="email" class="text-xs font-medium text-stone-600 mb-1 block" data-i18n="contact.email">{t('contact.email')}</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" required
+          class="w-full px-3.5 py-2.5 border border-stone-200 rounded-lg bg-white text-stone-800 text-sm font-sans outline-none focus:border-accent transition-colors duration-200" />
+      </div>
+      <div>
+        <label for="message" class="text-xs font-medium text-stone-600 mb-1 block" data-i18n="contact.message">{t('contact.message')}</label>
+        <textarea id="message" name="message" placeholder="Tell me about your project..." data-i18n-placeholder="contact.messagePh" required rows="4"
+          class="w-full px-3.5 py-2.5 border border-stone-200 rounded-lg bg-white text-stone-800 text-sm font-sans outline-none focus:border-accent transition-colors duration-200 resize-y min-h-[100px]"></textarea>
+      </div>
+      <button type="submit" data-i18n="contact.send"
+        class="self-start px-6 py-2.5 bg-accent text-white border-none rounded-full font-normal text-xs tracking-wide cursor-pointer hover:bg-accent-light hover:-translate-y-0.5 transition-all duration-200">
+        {t('contact.send')}
+      </button>
+    </form>
+  </div>
+</section>

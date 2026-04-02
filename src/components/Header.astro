@@ -1,0 +1,26 @@
+---
+import { t } from '../i18n/utils';
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-white/90 backdrop-blur-xl border-b border-stone-100 transition-transform duration-300">
+  <div class="max-w-xl mx-auto flex justify-between items-center">
+    <a href="#" class="text-stone-900 font-medium text-sm tracking-tight no-underline">Zian Meng</a>
+
+    <div class="flex items-center gap-5">
+      <a href="#projects" class="text-stone-400 text-xs tracking-wide hover:text-stone-900 transition-colors duration-200 no-underline hidden sm:inline" data-i18n="nav.work">{t('nav.work')}</a>
+      <a href="#journey" class="text-stone-400 text-xs tracking-wide hover:text-stone-900 transition-colors duration-200 no-underline hidden sm:inline" data-i18n="nav.experience">{t('nav.experience')}</a>
+      <a href="#about" class="text-stone-400 text-xs tracking-wide hover:text-stone-900 transition-colors duration-200 no-underline hidden sm:inline" data-i18n="nav.about">{t('nav.about')}</a>
+      <a href="#contact" class="text-stone-400 text-xs tracking-wide hover:text-stone-900 transition-colors duration-200 no-underline hidden sm:inline" data-i18n="nav.contact">{t('nav.contact')}</a>
+
+      <!-- Language toggle -->
+      <div class="relative" id="lang-dropdown">
+        <button class="text-accent border border-accent/40 px-2 py-0.5 rounded text-[10px] font-normal cursor-pointer hover:bg-accent hover:text-white transition-all duration-200" onclick="toggleLangMenu(event)" id="lang-toggle">EN &#9662;</button>
+        <ul class="hidden absolute top-7 right-0 bg-white border border-stone-200 rounded-lg py-1 list-none min-w-[90px] shadow-lg z-[200]" id="lang-menu">
+          <li><a href="#" onclick="setLang('en', event)" class="block px-3 py-1.5 text-stone-500 text-xs no-underline hover:text-stone-900 transition-colors duration-200">English</a></li>
+          <li><a href="#" onclick="setLang('zh', event)" class="block px-3 py-1.5 text-stone-500 text-xs no-underline hover:text-stone-900 transition-colors duration-200">中文</a></li>
+          <li><a href="#" onclick="setLang('es', event)" class="block px-3 py-1.5 text-stone-500 text-xs no-underline hover:text-stone-900 transition-colors duration-200">Español</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
