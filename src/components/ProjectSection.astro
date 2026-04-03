@@ -14,14 +14,20 @@ import { projects } from '../data/projects';
         return (
           <div class="reveal cursor-pointer group flex gap-5 items-start" data-project={project.slug} onclick={`openModal('${project.slug}')`}>
             {/* Thumbnail */}
-            <div class="flex-shrink-0 w-40 rounded-xl overflow-hidden bg-stone-100">
-              <img
-                src={`/${project.images[0]}`}
-                alt={locale.title}
-                loading="lazy"
-                class="w-full h-auto block group-hover:scale-[1.03] transition-transform duration-500"
-              />
-            </div>
+            {project.images.length > 0 ? (
+              <div class="flex-shrink-0 w-40 rounded-xl overflow-hidden bg-stone-100">
+                <img
+                  src={`/${project.images[0]}`}
+                  alt={locale.title}
+                  loading="lazy"
+                  class="w-full h-auto block group-hover:scale-[1.03] transition-transform duration-500"
+                />
+              </div>
+            ) : (
+              <div class="flex-shrink-0 w-40 h-28 rounded-xl flex items-center justify-center text-3xl" style={`background: ${project.gradient}`}>
+                {project.emoji}
+              </div>
+            )}
 
             {/* Content */}
             <div class="flex-1 min-w-0 pt-1">

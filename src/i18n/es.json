@@ -19,6 +19,8 @@
   "projects.grainify.desc": "Un simulador de cámara de película para iPhone que lleva la experiencia de fotografía analógica a tu bolsillo. Carga un rollo de 9 películas meticulosamente recreadas, dispara hasta llenar y revela en un cuarto oscuro virtual.",
   "projects.serverstatus.title": "Server Status",
   "projects.serverstatus.desc": "Un panel de control de servidor pantalla completa y auto-rotativo diseñado para una pequeña pantalla en tu escritorio. Monitorea CPU, memoria, almacenamiento y red en tiempo real con widgets claros y alertas visuales instantáneas.",
+  "projects.moneytree.title": "Money Tree",
+  "projects.moneytree.desc": "Una aplicación de inversión integral para inversores principiantes e intermedios. Rastrea tu portafolio, descubre tendencias del mercado y aprende conceptos de inversión — todo en un solo lugar.",
   "journey.label": "Trayectoria",
   "journey.title": "Mi camino",
   "journey.expand": "toca para expandir",

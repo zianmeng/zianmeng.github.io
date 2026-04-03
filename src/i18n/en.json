@@ -19,6 +19,8 @@
   "projects.grainify.desc": "A film camera simulator for iPhone that brings the analog photography experience to your pocket. Load a roll from 9 meticulously recreated film stocks, shoot until it's full, then develop in a virtual darkroom.",
   "projects.serverstatus.title": "Server Status",
   "projects.serverstatus.desc": "A full-screen, auto-rotating server dashboard built for a small screen on your desk. Monitor CPU, memory, storage, and network in real time with glanceable widgets and instant visual alerts.",
+  "projects.moneytree.title": "Money Tree",
+  "projects.moneytree.desc": "A comprehensive investment app for beginner to intermediate investors. Track your portfolio, discover market trends, read financial news, and learn investing concepts — all in one place.",
   "journey.label": "Journey",
   "journey.title": "Where I've been",
   "journey.expand": "tap to expand",

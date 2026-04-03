@@ -300,5 +300,66 @@ export const projects: Project[] = [
         ]
       }
     }
+  },
+  {
+    slug: 'moneytree',
+    emoji: '\u{1F333}',
+    gradient: 'linear-gradient(135deg, #1A3D1A, #2A6B2A)',
+    imageStyle: 'phone',
+    tags: ['Swift', 'SwiftUI', 'Finnhub API', 'StoreKit 2', 'iOS App'],
+    images: [],
+    locales: {
+      en: {
+        title: 'Money Tree',
+        subtitle: 'Investment & Portfolio Tracker for iOS',
+        description: "A comprehensive investment app for beginner to intermediate investors. Track your portfolio, discover market trends, read financial news, and learn investing concepts — all in one place. Built with live market data from Finnhub, a freemium model with StoreKit 2, and a full educational curriculum.",
+        features: [
+          'Dashboard with portfolio summary, performance charts, and trending stocks',
+          'Real-time stock quotes and price tracking via Finnhub API',
+          'Buy/Sell trading interface with transaction history',
+          'Stock detail pages with key statistics (P/E ratio, market cap, 52-week range)',
+          'Market news feed with sentiment filtering (bullish, bearish, portfolio)',
+          'Investment goals tracking with progress visualization',
+          'Educational content — 4 topics with 9 lessons on investing basics, portfolio strategy, and risk management',
+          'Watchlist with real-time updates',
+          'Premium tier with extended charts, unlimited goals, and portfolio analytics',
+          'Dark mode, biometric auth, and Keychain-secured API keys'
+        ]
+      },
+      zh: {
+        title: 'Money Tree',
+        subtitle: 'iOS投资与投资组合追踪器',
+        description: '为初级到中级投资者打造的综合投资应用。追踪你的投资组合、发现市场趋势、阅读财经新闻，并学习投资概念——一站式解决。使用Finnhub实时市场数据、StoreKit 2免费增值模式和完整的教育课程。',
+        features: [
+          '仪表板，包含投资组合摘要、业绩图表和热门股票',
+          '通过Finnhub API获取实时股票报价和价格追踪',
+          '买卖交易界面和交易历史',
+          '股票详情页，包含关键统计数据',
+          '市场新闻，支持情绪筛选',
+          '投资目标追踪和进度可视化',
+          '教育内容——涵盖投资基础、策略和风险管理',
+          '实时更新的关注列表',
+          '高级版——扩展图表、无限目标和投资组合分析',
+          '深色模式、生物识别认证和钥匙串安全存储'
+        ]
+      },
+      es: {
+        title: 'Money Tree',
+        subtitle: 'Seguimiento de Inversiones para iOS',
+        description: 'Una aplicación de inversión integral para inversores principiantes e intermedios. Rastrea tu portafolio, descubre tendencias del mercado, lee noticias financieras y aprende conceptos de inversión — todo en un solo lugar.',
+        features: [
+          'Panel con resumen de portafolio, gráficos de rendimiento y acciones en tendencia',
+          'Cotizaciones en tiempo real via Finnhub API',
+          'Interfaz de compra/venta con historial de transacciones',
+          'Páginas de detalle con estadísticas clave',
+          'Noticias del mercado con filtro de sentimiento',
+          'Seguimiento de metas de inversión',
+          'Contenido educativo sobre inversión',
+          'Lista de seguimiento con actualizaciones en tiempo real',
+          'Nivel premium con gráficos extendidos y análisis',
+          'Modo oscuro y autenticación biométrica'
+        ]
+      }
+    }
   }
 ];
