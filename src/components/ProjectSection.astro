@@ -14,7 +14,7 @@ import { projects } from '../data/projects';
         return (
           <div class="reveal cursor-pointer group flex gap-5 items-start" data-project={project.slug} onclick={`openModal('${project.slug}')`}>
             {/* Thumbnail */}
-            <div class="flex-shrink-0 w-48 rounded-xl overflow-hidden bg-stone-100">
+            <div class="flex-shrink-0 w-32 rounded-xl overflow-hidden bg-stone-100">
               <img
                 src={`/${project.images[0]}`}
                 alt={locale.title}
