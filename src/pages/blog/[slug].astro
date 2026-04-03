@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { posts } from '../../data/posts';
+
+export function getStaticPaths() {
+  return posts.map(post => ({ params: { slug: post.slug } }));
+}
+
+const { slug } = Astro.params;
+const post = posts.find(p => p.slug === slug);
+
+if (!post) {
+  return Astro.redirect('/');
+}
+
+function formatDate(dateStr: string): string {
+  const d = new Date(dateStr + 'T00:00:00');
+  return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+}
+---
+
+<BaseLayout title={`${post.title} — Zian Meng`}>
+  <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-white/90 backdrop-blur-xl border-b border-stone-100">
+    <div class="max-w-2xl mx-auto flex justify-between items-center">
+      <a href="/" class="text-stone-900 font-medium text-sm tracking-tight no-underline">Zian Meng</a>
+      <a href="/#writing" class="text-stone-400 text-xs tracking-wide hover:text-stone-900 transition-colors duration-200 no-underline">&larr; Back</a>
+    </div>
+  </nav>
+
+  <article class="pt-32 pb-20 px-6">
+    <div class="max-w-2xl mx-auto">
+      <p class="text-xs text-stone-400 mb-3">{formatDate(post.date)}</p>
+      <h1 class="font-light text-stone-900 text-3xl mb-8 tracking-tight leading-tight">{post.title}</h1>
+      <div class="space-y-5">
+        {post.content.split('\n\n').map(paragraph => (
+          <p class="text-stone-500 text-sm leading-[1.9]">{paragraph}</p>
+        ))}
+      </div>
+    </div>
+  </article>
+
+  <footer class="py-8 px-6 border-t border-stone-100">
+    <div class="max-w-2xl mx-auto text-center">
+      <p class="text-xs text-stone-300">&copy; 2026 Zian Meng</p>
+    </div>
+  </footer>
+</BaseLayout>
