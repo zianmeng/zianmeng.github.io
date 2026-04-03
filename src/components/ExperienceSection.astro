@@ -29,7 +29,7 @@ const roles = [
           </p>
           <div class="timeline-details">
             {role.details.map(d => (
-              <p class="text-stone-500 text-sm leading-relaxed mt-1.5" data-i18n={`journey.${role.id}.${d}`}>{t(`journey.${role.id}.${d}`)}</p>
+              <p class="text-stone-500 text-sm leading-relaxed mt-1.5" data-i18n={`journey.${role.id}.${d}`}><span class="text-stone-400 mr-1.5">—</span>{t(`journey.${role.id}.${d}`)}</p>
             ))}
           </div>
           <span class="text-[11px] text-stone-300 group-hover:text-accent transition-colors duration-200" data-i18n="journey.expand">{t('journey.expand')}</span>
