@@ -3,41 +3,36 @@ import { t } from '../i18n/utils';
 import { projects } from '../data/projects';
 ---
 
-<section id="projects" class="py-12 px-6">
-  <div class="max-w-xl mx-auto">
-    <p class="text-xs text-accent font-medium tracking-[0.2em] uppercase mb-2 reveal" data-i18n="projects.label">{t('projects.label')}</p>
-    <h2 class="font-light text-stone-900 text-2xl mb-8 tracking-tight reveal" data-i18n="projects.title">{t('projects.title')}</h2>
+<section id="projects" class="py-16 px-6">
+  <div class="max-w-2xl mx-auto">
+    <p class="text-xs text-accent font-medium tracking-[0.2em] uppercase mb-3 reveal" data-i18n="projects.label">{t('projects.label')}</p>
+    <h2 class="font-light text-stone-900 text-3xl mb-10 tracking-tight reveal" data-i18n="projects.title">{t('projects.title')}</h2>
 
-    <div class="space-y-6">
+    <div class="space-y-14">
       {projects.map(project => {
         const locale = project.locales.en;
         return (
-          <div class="reveal cursor-pointer group flex gap-4 items-start" data-project={project.slug} onclick={`openModal('${project.slug}')`}>
-            {/* Thumbnail */}
-            <div class="flex-shrink-0 w-36 h-24 rounded-lg overflow-hidden bg-stone-100">
+          <div class="reveal cursor-pointer group" data-project={project.slug} onclick={`openModal('${project.slug}')`}>
+            {/* Full-width image */}
+            <div class="w-full rounded-xl overflow-hidden bg-stone-100 mb-5">
               <img
                 src={`/${project.images[0]}`}
                 alt={locale.title}
                 loading="lazy"
-                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-400"
+                class="w-full h-auto block group-hover:scale-[1.02] transition-transform duration-500"
               />
             </div>
 
             {/* Content */}
-            <div class="flex-1 min-w-0">
-              <div class="flex items-baseline gap-2 mb-0.5">
-                <h3 class="font-medium text-stone-900 text-sm tracking-tight group-hover:text-accent transition-colors duration-200" data-i18n={`projects.${project.slug}.title`}>{locale.title}</h3>
-                <span class="text-[11px] text-stone-400 font-normal truncate">{locale.subtitle}</span>
-              </div>
-              <p class="text-stone-500 text-xs leading-relaxed mb-2 line-clamp-2" data-i18n={`projects.${project.slug}.desc`}>{locale.description.length > 140 ? locale.description.slice(0, 140) + '...' : locale.description}</p>
-              <div class="flex gap-1 flex-wrap">
-                {project.tags.slice(0, 4).map(tag => (
-                  <span class="text-[10px] px-1.5 py-0.5 border border-stone-200 rounded-full text-stone-400">{tag}</span>
-                ))}
-                {project.tags.length > 4 && (
-                  <span class="text-[10px] px-1.5 py-0.5 text-stone-300">+{project.tags.length - 4}</span>
-                )}
-              </div>
+            <div class="flex items-baseline gap-3 mb-2">
+              <h3 class="font-medium text-stone-900 text-lg tracking-tight group-hover:text-accent transition-colors duration-200" data-i18n={`projects.${project.slug}.title`}>{locale.title}</h3>
+              <span class="text-sm text-stone-400 font-normal">{locale.subtitle}</span>
+            </div>
+            <p class="text-stone-500 text-sm leading-relaxed mb-3" data-i18n={`projects.${project.slug}.desc`}>{locale.description.length > 200 ? locale.description.slice(0, 200) + '...' : locale.description}</p>
+            <div class="flex gap-1.5 flex-wrap">
+              {project.tags.map(tag => (
+                <span class="text-xs px-2 py-0.5 border border-stone-200 rounded-full text-stone-400">{tag}</span>
+              ))}
             </div>
           </div>
         );
