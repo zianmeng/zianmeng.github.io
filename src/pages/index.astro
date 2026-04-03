@@ -6,7 +6,6 @@ import ProjectSection from '../components/ProjectSection.astro';
 import ExperienceSection from '../components/ExperienceSection.astro';
 import EducationSection from '../components/EducationSection.astro';
 import AboutSection from '../components/AboutSection.astro';
-import ContactSection from '../components/ContactSection.astro';
 import Footer from '../components/Footer.astro';
 ---
 
@@ -17,8 +16,6 @@ import Footer from '../components/Footer.astro';
   <ExperienceSection />
   <EducationSection />
   <AboutSection />
-  <ContactSection />
-
   <!-- Project Modal Shell -->
   <div class="fixed inset-0 z-[300] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300" id="project-modal">
     <div class="absolute inset-0 bg-black/60 backdrop-blur-md" onclick="closeModal()"></div>
