@@ -18,7 +18,7 @@ const roles = [
       {roles.map(role => (
         <div class="timeline-item cursor-pointer group" onclick="toggleTimeline(this)">
           <div class="flex items-baseline justify-between gap-3 mb-0.5">
-            <h3 class="font-medium text-stone-900 text-sm tracking-tight">
+            <h3 class="font-medium text-stone-900 text-base tracking-tight">
               <span data-i18n={`journey.${role.id}`}>{t(`journey.${role.id}`)}</span>
               <span class="text-stone-400 font-normal"> at </span>
               <span class="text-stone-600 font-normal" data-i18n={`journey.${role.id}.company`}>{t(`journey.${role.id}.company`)}</span>
@@ -32,7 +32,7 @@ const roles = [
               <p class="text-stone-500 text-sm leading-relaxed mt-1.5" data-i18n={`journey.${role.id}.${d}`}><span class="text-stone-400 mr-1.5">—</span>{t(`journey.${role.id}.${d}`)}</p>
             ))}
           </div>
-          <span class="text-[11px] text-stone-300 group-hover:text-accent transition-colors duration-200" data-i18n="journey.expand">{t('journey.expand')}</span>
+          <span class="expand-hint text-[11px] text-stone-300 group-hover:text-accent transition-colors duration-200" data-i18n="journey.expand">{t('journey.expand')}</span>
         </div>
       ))}
     </div>

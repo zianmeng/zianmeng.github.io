@@ -73,3 +73,7 @@ nav.nav-hidden {
   max-height: 500px;
   opacity: 1;
 }
+
+.timeline-item.active .expand-hint {
+  display: none;
+}
