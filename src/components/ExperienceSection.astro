@@ -16,7 +16,7 @@ const roles = [
 
     <div class="space-y-6 reveal">
       {roles.map(role => (
-        <div class="timeline-item cursor-pointer group" onclick="toggleTimeline(this)">
+        <div class="timeline-item cursor-pointer group" role="button" tabindex="0" onclick="toggleTimeline(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleTimeline(this)}">
           <div class="flex items-baseline justify-between gap-3 mb-0.5">
             <h3 class="font-medium text-stone-900 dark:text-stone-100 text-base tracking-tight">
               <span data-i18n={`journey.${role.id}`}>{t(`journey.${role.id}`)}</span>

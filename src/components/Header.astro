@@ -15,14 +15,14 @@ import { t } from '../i18n/utils';
         id="dark-toggle"
         onclick="toggleDark()"
         aria-label="Toggle dark mode"
-        class="text-stone-400 dark:text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 transition-colors duration-200 cursor-pointer text-sm leading-none"
+        class="p-2 -m-2 text-stone-400 dark:text-stone-500 hover:text-stone-900 dark:hover:text-stone-100 transition-colors duration-200 cursor-pointer text-sm leading-none"
       >
         <span id="dark-icon">☾</span>
       </button>
 
       <!-- Language toggle -->
       <div class="relative" id="lang-dropdown">
-        <button class="text-accent border border-accent/40 px-2 py-0.5 rounded text-[10px] font-normal cursor-pointer hover:bg-accent hover:text-white transition-all duration-200" onclick="toggleLangMenu(event)" id="lang-toggle">EN &#9662;</button>
+        <button aria-label="Select language" class="text-accent border border-accent/40 px-2 py-0.5 rounded text-[10px] font-normal cursor-pointer hover:bg-accent hover:text-white transition-all duration-200" onclick="toggleLangMenu(event)" id="lang-toggle">EN &#9662;</button>
         <ul class="hidden absolute top-7 right-0 bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-lg py-1 list-none min-w-[90px] shadow-lg z-[200]" id="lang-menu">
           <li><a href="#" onclick="setLang('en', event)" class="block px-3 py-1.5 text-stone-500 dark:text-stone-400 text-xs no-underline hover:text-stone-900 dark:hover:text-stone-100 transition-colors duration-200">English</a></li>
           <li><a href="#" onclick="setLang('zh', event)" class="block px-3 py-1.5 text-stone-500 dark:text-stone-400 text-xs no-underline hover:text-stone-900 dark:hover:text-stone-100 transition-colors duration-200">中文</a></li>

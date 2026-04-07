@@ -12,7 +12,7 @@ import { projects } from '../data/projects';
       {projects.map(project => {
         const locale = project.locales.en;
         return (
-          <div class="reveal cursor-pointer group flex gap-5 items-start" data-project={project.slug} onclick={`openModal('${project.slug}')`}>
+          <div class="reveal cursor-pointer group flex gap-5 items-start" data-project={project.slug} role="button" tabindex="0" onclick={`openModal('${project.slug}')`} onkeydown={`if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('${project.slug}')}`}>
             {/* Thumbnail */}
             {project.images.length > 0 ? (
               <div class="flex-shrink-0 w-40 rounded-xl overflow-hidden bg-stone-100 dark:bg-stone-800">
