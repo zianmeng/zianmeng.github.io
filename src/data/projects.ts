@@ -21,6 +21,70 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: 'deepjournal',
+    emoji: '\u{1F4D4}',
+    gradient: 'linear-gradient(135deg, #2A1A1F, #5C2E3A)',
+    imageStyle: 'phone',
+    tags: ['Swift 6', 'SwiftUI', 'SwiftData', 'CloudKit', 'Google Gemini', 'WidgetKit', 'iOS App'],
+    images: ['images/deepjournal/01.jpg', 'images/deepjournal/02.jpg', 'images/deepjournal/03.jpg', 'images/deepjournal/04.jpg', 'images/deepjournal/05.jpg'],
+    locales: {
+      en: {
+        title: 'Deep Journal',
+        subtitle: 'Private AI Journaling for iOS',
+        description: "I've used ChatGPT and Claude for years to work through my thoughts — they're great at reflection, but they don't keep records and the context always runs out. Journaling apps exist, but they're static. Deep Journal is the middle ground: a private, AI-powered journal that actually remembers, reflects, and grows with you. Your entries stay on-device and sync via iCloud with end-to-end encryption. A Gemini-powered AI layer helps you spot emotional patterns, catch cognitive distortions, and understand yourself better over time.",
+        features: [
+          'Journal entries with rich text, photo attachments, tags, and bookmarks',
+          'Voice-to-text entry via Speech Recognition',
+          'AI emotion detection — top 5 emotions per entry, inline chat, and follow-up questions',
+          'Configurable AI personality for reflections and tone',
+          'Cognitive distortion detection and crisis-aware response handling',
+          'Wellbeing check-in flow with mood tracking',
+          'Insights dashboard — mood flow chart, emotion breakdown, writing streak heatmap',
+          'Natural language search ("last week", "january", emotion and tag suggestions)',
+          'iCloud sync with end-to-end encryption (AES-GCM via Keychain)',
+          'App lock with Face ID / Touch ID / passcode',
+          'WidgetKit extensions — mood streak, quick entry, recent entry'
+        ]
+      },
+      zh: {
+        title: 'Deep Journal',
+        subtitle: 'iOS私密AI日记应用',
+        description: '我用了很多年的ChatGPT和Claude来梳理思绪——它们善于反思，但不保存记录，上下文也总会耗尽。普通日记应用存在，但太静态了。Deep Journal是我的折中方案：一款真正能记住、反思并随你成长的私密AI日记。日记条目存储在本地，通过iCloud端对端加密同步。基于Gemini的AI层帮助你发现情绪模式、识别认知扭曲，随时间更好地了解自己。',
+        features: [
+          '支持富文本、照片附件、标签和书签的日记条目',
+          '通过语音识别进行语音转文字输入',
+          'AI情绪检测——每条日记识别前5种情绪，支持内联聊天和追问',
+          '可配置AI个性，用于反思和语气调整',
+          '认知扭曲检测和危机感知响应',
+          '情绪打卡流程和心情追踪',
+          '洞察仪表板——情绪流动图、情绪分布、写作连击热图',
+          '自然语言搜索（"上周"、"一月份"、情绪和标签建议）',
+          'iCloud同步，端对端加密（基于Keychain的AES-GCM）',
+          '应用锁定，支持Face ID / Touch ID / 密码',
+          'WidgetKit小组件——情绪连击、快速记录、最近日记'
+        ]
+      },
+      es: {
+        title: 'Deep Journal',
+        subtitle: 'Diario Privado con IA para iOS',
+        description: 'Usé ChatGPT y Claude durante años para organizar mis pensamientos — son buenos para la reflexión, pero no guardan registros y el contexto siempre se agota. Las apps de diario existen, pero son estáticas. Deep Journal es el punto medio: un diario privado impulsado por IA que realmente recuerda, reflexiona y crece contigo. Tus entradas se almacenan en el dispositivo y se sincronizan con iCloud con cifrado de extremo a extremo. Una capa de IA con Gemini te ayuda a detectar patrones emocionales, identificar distorsiones cognitivas y entenderte mejor con el tiempo.',
+        features: [
+          'Entradas con texto enriquecido, fotos adjuntas, etiquetas y marcadores',
+          'Entrada por voz mediante reconocimiento de voz',
+          'Detección de emociones por IA — top 5 por entrada, chat integrado y preguntas de seguimiento',
+          'Personalidad de IA configurable para reflexiones',
+          'Detección de distorsiones cognitivas y manejo de respuestas de crisis',
+          'Flujo de bienestar y seguimiento de estado de ánimo',
+          'Panel de insights — gráfico de flujo de ánimo, desglose emocional, mapa de racha de escritura',
+          'Búsqueda en lenguaje natural ("la semana pasada", "enero", sugerencias de emoción)',
+          'Sincronización iCloud con cifrado de extremo a extremo (AES-GCM)',
+          'Bloqueo con Face ID / Touch ID / contraseña',
+          'Widgets de WidgetKit — racha de ánimo, entrada rápida, entrada reciente'
+        ]
+      }
+    }
+  },
+  {
     slug: 'zbudget',
     emoji: '\u{1F4B0}',
     gradient: 'linear-gradient(135deg, #1A3D2A, #2A6B45)',
@@ -358,70 +422,6 @@ export const projects: Project[] = [
           'Lista de seguimiento con actualizaciones en tiempo real',
           'Nivel premium con gráficos extendidos y análisis',
           'Modo oscuro y autenticación biométrica'
-        ]
-      }
-    }
-  },
-  {
-    slug: 'deepjournal',
-    emoji: '\u{1F4D4}',
-    gradient: 'linear-gradient(135deg, #2A1A1F, #5C2E3A)',
-    imageStyle: 'phone',
-    tags: ['Swift 6', 'SwiftUI', 'SwiftData', 'CloudKit', 'Google Gemini', 'WidgetKit', 'iOS App'],
-    images: ['images/deepjournal/01.jpg', 'images/deepjournal/02.jpg', 'images/deepjournal/03.jpg', 'images/deepjournal/04.jpg', 'images/deepjournal/05.jpg'],
-    locales: {
-      en: {
-        title: 'Deep Journal',
-        subtitle: 'Private AI Journaling for iOS',
-        description: "I've used ChatGPT and Claude for years to work through my thoughts — they're great at reflection, but they don't keep records and the context always runs out. Journaling apps exist, but they're static. Deep Journal is the middle ground: a private, AI-powered journal that actually remembers, reflects, and grows with you. Your entries stay on-device and sync via iCloud with end-to-end encryption. A Gemini-powered AI layer helps you spot emotional patterns, catch cognitive distortions, and understand yourself better over time.",
-        features: [
-          'Journal entries with rich text, photo attachments, tags, and bookmarks',
-          'Voice-to-text entry via Speech Recognition',
-          'AI emotion detection — top 5 emotions per entry, inline chat, and follow-up questions',
-          'Configurable AI personality for reflections and tone',
-          'Cognitive distortion detection and crisis-aware response handling',
-          'Wellbeing check-in flow with mood tracking',
-          'Insights dashboard — mood flow chart, emotion breakdown, writing streak heatmap',
-          'Natural language search ("last week", "january", emotion and tag suggestions)',
-          'iCloud sync with end-to-end encryption (AES-GCM via Keychain)',
-          'App lock with Face ID / Touch ID / passcode',
-          'WidgetKit extensions — mood streak, quick entry, recent entry'
-        ]
-      },
-      zh: {
-        title: 'Deep Journal',
-        subtitle: 'iOS私密AI日记应用',
-        description: '我用了很多年的ChatGPT和Claude来梳理思绪——它们善于反思，但不保存记录，上下文也总会耗尽。普通日记应用存在，但太静态了。Deep Journal是我的折中方案：一款真正能记住、反思并随你成长的私密AI日记。日记条目存储在本地，通过iCloud端对端加密同步。基于Gemini的AI层帮助你发现情绪模式、识别认知扭曲，随时间更好地了解自己。',
-        features: [
-          '支持富文本、照片附件、标签和书签的日记条目',
-          '通过语音识别进行语音转文字输入',
-          'AI情绪检测——每条日记识别前5种情绪，支持内联聊天和追问',
-          '可配置AI个性，用于反思和语气调整',
-          '认知扭曲检测和危机感知响应',
-          '情绪打卡流程和心情追踪',
-          '洞察仪表板——情绪流动图、情绪分布、写作连击热图',
-          '自然语言搜索（"上周"、"一月份"、情绪和标签建议）',
-          'iCloud同步，端对端加密（基于Keychain的AES-GCM）',
-          '应用锁定，支持Face ID / Touch ID / 密码',
-          'WidgetKit小组件——情绪连击、快速记录、最近日记'
-        ]
-      },
-      es: {
-        title: 'Deep Journal',
-        subtitle: 'Diario Privado con IA para iOS',
-        description: 'Usé ChatGPT y Claude durante años para organizar mis pensamientos — son buenos para la reflexión, pero no guardan registros y el contexto siempre se agota. Las apps de diario existen, pero son estáticas. Deep Journal es el punto medio: un diario privado impulsado por IA que realmente recuerda, reflexiona y crece contigo. Tus entradas se almacenan en el dispositivo y se sincronizan con iCloud con cifrado de extremo a extremo. Una capa de IA con Gemini te ayuda a detectar patrones emocionales, identificar distorsiones cognitivas y entenderte mejor con el tiempo.',
-        features: [
-          'Entradas con texto enriquecido, fotos adjuntas, etiquetas y marcadores',
-          'Entrada por voz mediante reconocimiento de voz',
-          'Detección de emociones por IA — top 5 por entrada, chat integrado y preguntas de seguimiento',
-          'Personalidad de IA configurable para reflexiones',
-          'Detección de distorsiones cognitivas y manejo de respuestas de crisis',
-          'Flujo de bienestar y seguimiento de estado de ánimo',
-          'Panel de insights — gráfico de flujo de ánimo, desglose emocional, mapa de racha de escritura',
-          'Búsqueda en lenguaje natural ("la semana pasada", "enero", sugerencias de emoción)',
-          'Sincronización iCloud con cifrado de extremo a extremo (AES-GCM)',
-          'Bloqueo con Face ID / Touch ID / contraseña',
-          'Widgets de WidgetKit — racha de ánimo, entrada rápida, entrada reciente'
         ]
       }
     }
