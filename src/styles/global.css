@@ -86,6 +86,16 @@ nav.nav-hidden {
   display: none;
 }
 
+/* Dark mode — modal close button */
+.dark #modal-content button {
+  background-color: rgb(41 37 36) !important; /* stone-800 */
+  color: rgb(120 113 108) !important; /* stone-500 */
+}
+.dark #modal-content button:hover {
+  background-color: rgb(68 64 60) !important; /* stone-700 */
+  color: rgb(168 162 158) !important;
+}
+
 /* Dark mode — modal dynamic content */
 .dark #modal-content h2 {
   color: rgb(245 245 244); /* stone-100 */
