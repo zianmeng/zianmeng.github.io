@@ -7,90 +7,51 @@ import { projects } from '../data/projects';
   <div class="max-w-2xl mx-auto">
     <h2 class="font-light text-stone-900 dark:text-stone-100 text-2xl mb-8 tracking-tight reveal" data-i18n="projects.title">{t('projects.title')}</h2>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+    <div class="flex flex-col">
       {projects.map((project, i) => {
         const locale = project.locales.en;
-        const isHero = i === 0;
         const objPos = project.imageStyle === 'phone' ? 'object-top' : 'object-center';
-        const cardClass = `reveal cursor-pointer group rounded-2xl overflow-hidden border border-stone-100 dark:border-stone-800 hover:border-stone-300 dark:hover:border-stone-700 bg-white dark:bg-stone-900/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40 transition-all duration-200`;
 
-        return isHero ? (
-          /* Hero card — full width, horizontal */
+        return (
           <div
-            class={`${cardClass} sm:col-span-2`}
-            style={`--stagger:0ms`}
+            class="reveal group flex items-center gap-4 py-3.5 border-b border-stone-100 dark:border-stone-800 last:border-0 cursor-pointer hover:bg-stone-50 dark:hover:bg-stone-900/40 -mx-3 px-3 rounded-lg transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/40"
+            style={`--stagger:${i * 40}ms`}
             data-project={project.slug}
             role="button"
             tabindex="0"
             onclick={`openModal('${project.slug}')`}
             onkeydown={`if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('${project.slug}')}`}
           >
-            <div class="flex items-stretch">
+            {/* Thumbnail */}
+            <div class="flex-shrink-0 w-14 h-14 rounded-xl overflow-hidden bg-stone-100 dark:bg-stone-800">
               {project.images.length > 0 ? (
-                <div class="w-36 sm:w-44 flex-shrink-0 overflow-hidden bg-stone-100 dark:bg-stone-800">
-                  <img
-                    src={`/${project.images[0]}`}
-                    alt={locale.title}
-                    loading="eager"
-                    width="176"
-                    height="320"
-                    class={`w-full h-full object-cover ${objPos} min-h-[210px] group-hover:scale-[1.03] transition-transform duration-500`}
-                  />
-                </div>
-              ) : (
-                <div class="w-36 sm:w-44 flex-shrink-0 min-h-[210px]" style={`background: ${project.gradient}`}></div>
-              )}
-              <div class="flex-1 min-w-0 p-5 flex flex-col justify-center">
-                <h3 class="font-medium text-stone-900 dark:text-stone-100 text-base tracking-tight mb-0.5 group-hover:text-accent transition-colors duration-200" data-i18n={`projects.${project.slug}.title`}>{locale.title}</h3>
-                <p class="text-sm text-stone-400 dark:text-stone-500 mb-2.5">{locale.subtitle}</p>
-                <p class="text-stone-500 dark:text-stone-400 text-sm leading-relaxed mb-4 hidden sm:block" data-i18n={`projects.${project.slug}.desc`}>{locale.description.length > 220 ? locale.description.slice(0, 220) + '...' : locale.description}</p>
-                <div class="flex gap-1.5 flex-wrap">
-                  {project.tags.slice(0, 5).map(tag => (
-                    <span class="text-[11px] px-2 py-0.5 border border-stone-200 dark:border-stone-700 rounded-full text-stone-400 dark:text-stone-500">{tag}</span>
-                  ))}
-                  {project.tags.length > 5 && (
-                    <span class="text-[11px] text-stone-300 dark:text-stone-600">+{project.tags.length - 5}</span>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
-        ) : (
-          /* Grid card — half width, stacked */
-          <div
-            class={cardClass}
-            style={`--stagger:${i * 50}ms`}
-            data-project={project.slug}
-            role="button"
-            tabindex="0"
-            onclick={`openModal('${project.slug}')`}
-            onkeydown={`if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('${project.slug}')}`}
-          >
-            {project.images.length > 0 ? (
-              <div class="w-full h-44 overflow-hidden bg-stone-100 dark:bg-stone-800">
                 <img
                   src={`/${project.images[0]}`}
                   alt={locale.title}
-                  loading="lazy"
-                  width="330"
-                  height="176"
-                  class={`w-full h-full object-cover ${objPos} group-hover:scale-[1.03] transition-transform duration-500`}
+                  loading={i < 2 ? 'eager' : 'lazy'}
+                  width="56"
+                  height="56"
+                  class={`w-full h-full object-cover ${objPos}`}
                 />
+              ) : (
+                <div class="w-full h-full" style={`background: ${project.gradient}`}></div>
+              )}
+            </div>
+
+            {/* Content */}
+            <div class="flex-1 min-w-0">
+              <div class="flex items-baseline justify-between gap-2">
+                <h3 class="font-medium text-stone-900 dark:text-stone-100 text-sm tracking-tight group-hover:text-accent transition-colors duration-150 truncate" data-i18n={`projects.${project.slug}.title`}>{locale.title}</h3>
+                <span class="flex-shrink-0 text-[10px] text-stone-300 dark:text-stone-600">{project.tags.find(t => t.includes('App') || t.includes('macOS') || t.includes('iOS')) ?? project.tags[project.tags.length - 1]}</span>
               </div>
-            ) : (
-              <div class="w-full h-44" style={`background: ${project.gradient}`}></div>
-            )}
-            <div class="p-4">
-              <h3 class="font-medium text-stone-900 dark:text-stone-100 text-sm tracking-tight mb-0.5 group-hover:text-accent transition-colors duration-200" data-i18n={`projects.${project.slug}.title`}>{locale.title}</h3>
-              <p class="text-xs text-stone-400 dark:text-stone-500 mb-2.5">{locale.subtitle}</p>
-              <div class="flex gap-1.5 flex-wrap">
-                {project.tags.slice(0, 3).map(tag => (
-                  <span class="text-[10px] px-1.5 py-0.5 border border-stone-200 dark:border-stone-700 rounded-full text-stone-400 dark:text-stone-500">{tag}</span>
-                ))}
-                {project.tags.length > 3 && (
-                  <span class="text-[10px] text-stone-300 dark:text-stone-600">+{project.tags.length - 3}</span>
-                )}
-              </div>
+              <p class="text-xs text-stone-400 dark:text-stone-500 mt-0.5 truncate">{locale.subtitle}</p>
+            </div>
+
+            {/* Arrow */}
+            <div class="flex-shrink-0 text-stone-200 dark:text-stone-700 group-hover:text-stone-400 dark:group-hover:text-stone-500 transition-colors duration-150">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
             </div>
           </div>
         );
