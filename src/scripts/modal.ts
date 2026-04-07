@@ -53,9 +53,9 @@ function getLocale(project: Project): ProjectLocale {
   }
 
   if (project.tags.length) {
-    html += `<div class="flex gap-2 flex-wrap mt-5 pt-5 border-t border-stone-200">`;
+    html += `<div class="flex gap-2 flex-wrap mt-5 pt-5 border-t modal-divider">`;
     project.tags.forEach(t => {
-      html += `<span class="text-xs px-3 py-1.5 bg-stone-100 rounded-full text-stone-600 font-medium">${t}</span>`;
+      html += `<span class="modal-tag text-xs px-3 py-1.5 rounded-full font-medium">${t}</span>`;
     });
     html += `</div>`;
   }

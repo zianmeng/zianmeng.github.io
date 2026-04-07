@@ -9,30 +9,30 @@ const roles = [
 ];
 ---
 
-<section id="journey" class="py-12 px-6 border-t border-stone-100">
+<section id="journey" class="py-12 px-6 border-t border-stone-100 dark:border-stone-800">
   <div class="max-w-2xl mx-auto">
     <p class="text-xs text-accent font-medium tracking-[0.2em] uppercase mb-2 reveal" data-i18n="journey.label">{t('journey.label')}</p>
-    <h2 class="font-light text-stone-900 text-2xl mb-6 tracking-tight reveal" data-i18n="journey.title">{t('journey.title')}</h2>
+    <h2 class="font-light text-stone-900 dark:text-stone-100 text-2xl mb-6 tracking-tight reveal" data-i18n="journey.title">{t('journey.title')}</h2>
 
     <div class="space-y-6 reveal">
       {roles.map(role => (
         <div class="timeline-item cursor-pointer group" onclick="toggleTimeline(this)">
           <div class="flex items-baseline justify-between gap-3 mb-0.5">
-            <h3 class="font-medium text-stone-900 text-base tracking-tight">
+            <h3 class="font-medium text-stone-900 dark:text-stone-100 text-base tracking-tight">
               <span data-i18n={`journey.${role.id}`}>{t(`journey.${role.id}`)}</span>
-              <span class="text-stone-400 font-normal"> at </span>
-              <span class="text-stone-600 font-normal" data-i18n={`journey.${role.id}.company`}>{t(`journey.${role.id}.company`)}</span>
+              <span class="text-stone-400 dark:text-stone-600 font-normal"> at </span>
+              <span class="text-stone-600 dark:text-stone-400 font-normal" data-i18n={`journey.${role.id}.company`}>{t(`journey.${role.id}.company`)}</span>
             </h3>
           </div>
-          <p class="text-xs text-stone-400 mb-1">
+          <p class="text-xs text-stone-400 dark:text-stone-500 mb-1">
             <span data-i18n={`journey.${role.id}.date`}>{t(`journey.${role.id}.date`)}</span>
           </p>
           <div class="timeline-details">
             {role.details.map(d => (
-              <p class="text-stone-500 text-sm leading-relaxed mt-1.5" data-i18n={`journey.${role.id}.${d}`}><span class="text-stone-400 mr-1.5">—</span>{t(`journey.${role.id}.${d}`)}</p>
+              <p class="text-stone-500 dark:text-stone-400 text-sm leading-relaxed mt-1.5" data-i18n={`journey.${role.id}.${d}`}><span class="text-stone-400 dark:text-stone-600 mr-1.5">—</span>{t(`journey.${role.id}.${d}`)}</p>
             ))}
           </div>
-          <span class="expand-hint text-[11px] text-stone-300 group-hover:text-accent transition-colors duration-200" data-i18n="journey.expand">{t('journey.expand')}</span>
+          <span class="expand-hint text-[11px] text-stone-300 dark:text-stone-600 group-hover:text-accent transition-colors duration-200" data-i18n="journey.expand">{t('journey.expand')}</span>
         </div>
       ))}
     </div>

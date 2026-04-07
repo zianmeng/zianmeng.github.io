@@ -1,3 +1,23 @@
+// Dark mode toggle
+function updateDarkIcon() {
+  const icon = document.getElementById('dark-icon');
+  if (icon) icon.textContent = document.documentElement.classList.contains('dark') ? '☀' : '☾';
+}
+updateDarkIcon();
+
+(window as any).toggleDark = function() {
+  const isDark = document.documentElement.classList.toggle('dark');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  updateDarkIcon();
+};
+
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+  if (!localStorage.getItem('theme')) {
+    document.documentElement.classList.toggle('dark', e.matches);
+    updateDarkIcon();
+  }
+});
+
 // Scroll reveal
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {

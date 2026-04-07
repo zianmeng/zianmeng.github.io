@@ -77,3 +77,44 @@ nav.nav-hidden {
 .timeline-item.active .expand-hint {
   display: none;
 }
+
+/* Dark mode — modal dynamic content */
+.dark #modal-content h2 {
+  color: rgb(245 245 244); /* stone-100 */
+}
+.dark #modal-content h3 {
+  color: rgb(245 245 244);
+}
+.dark #modal-content p {
+  color: rgb(168 162 158); /* stone-400 */
+}
+.dark #modal-content li {
+  color: rgb(168 162 158);
+}
+.dark .modal-gallery > div {
+  border-color: rgb(68 64 60) !important; /* stone-700 */
+}
+.modal-divider {
+  border-color: rgb(231 229 228); /* stone-200 */
+}
+.dark .modal-divider {
+  border-color: rgb(68 64 60); /* stone-700 */
+}
+.modal-tag {
+  background-color: rgb(245 245 244); /* stone-100 */
+  color: rgb(87 83 78); /* stone-600 */
+}
+.dark .modal-tag {
+  background-color: rgb(41 37 36); /* stone-800 */
+  color: rgb(168 162 158); /* stone-400 */
+}
+
+/* Dark mode scrollbars */
+.dark .modal-content::-webkit-scrollbar-track,
+.dark .modal-gallery::-webkit-scrollbar-track {
+  background: #292524;
+}
+.dark .modal-content::-webkit-scrollbar-thumb,
+.dark .modal-gallery::-webkit-scrollbar-thumb {
+  background: #57534e;
+}

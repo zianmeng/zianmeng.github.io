@@ -11,6 +11,16 @@ const { title = 'Zian Meng — Product Designer' } = Astro.props;
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
+  <!-- Prevent flash of wrong theme -->
+  <script is:inline>
+    (function() {
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (stored === 'dark' || (!stored && prefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
   <meta name="description" content="Zian Meng — Product designer and photographer crafting thoughtful, user-centered digital experiences." />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -20,7 +30,7 @@ const { title = 'Zian Meng — Product Designer' } = Astro.props;
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 </head>
-<body class="bg-white text-stone-600 font-sans font-light leading-relaxed overflow-x-hidden">
+<body class="bg-white dark:bg-stone-950 text-stone-600 dark:text-stone-400 font-sans font-light leading-relaxed overflow-x-hidden transition-colors duration-200">
   <slot />
 </body>
 </html>
