@@ -69,6 +69,16 @@ nav.nav-hidden {
   border-radius: 2px;
 }
 
+/* Touch-action: reduce 300ms tap delay on all interactive elements */
+[role="button"], button, a {
+  touch-action: manipulation;
+}
+
+/* Modal accent top border */
+#modal-content {
+  border-top: 3px solid rgb(188, 68, 54);
+}
+
 /* Timeline expand animation */
 .timeline-details {
   max-height: 0;
