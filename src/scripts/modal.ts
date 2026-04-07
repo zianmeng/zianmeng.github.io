@@ -25,8 +25,8 @@ function getLocale(project: Project): ProjectLocale {
   const frameClass = project.imageStyle === 'screen' ? 'screen-frame' : 'phone-frame';
 
   let html = `
-    <div class="w-full aspect-[16/5] flex items-center justify-center text-4xl rounded-t-2xl relative" style="background: ${project.gradient}">
-      <span>${project.emoji}</span>
+    <div class="w-full rounded-t-2xl relative flex flex-col justify-end" style="background: ${project.gradient}; padding: 2rem 2rem 1.5rem;">
+      <p style="color: rgba(255,255,255,0.5); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; margin: 0 0 0.4rem; font-weight: 500;">${locale.subtitle}</p>
       <button class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/50 text-white/70 text-lg flex items-center justify-center cursor-pointer hover:bg-black/70 hover:scale-110 transition-all duration-200 backdrop-blur border-none" onclick="closeModal()">&#10005;</button>
     </div>
     <div class="p-8">
