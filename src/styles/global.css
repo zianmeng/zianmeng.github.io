@@ -20,14 +20,22 @@ body {
 
 .reveal.animate-in {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(20px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) var(--stagger, 0ms),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) var(--stagger, 0ms);
 }
 
 .reveal.animate-in.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal.animate-in {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* Nav hide on scroll */
